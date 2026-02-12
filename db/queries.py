@@ -60,7 +60,7 @@ GET_ASSEMBLED_PRS_NOT_ANALYZED = """
     WHERE p.chatbot_id = $1
       AND p.status = 'assembled'
       AND la.id IS NULL
-    ORDER BY p.discovered_at ASC
+    ORDER BY p.bot_reviewed_at DESC NULLS LAST
     LIMIT $2
 """
 
@@ -69,8 +69,29 @@ GET_ALL_ASSEMBLED_NOT_ANALYZED = """
     LEFT JOIN llm_analyses la ON la.pr_id = p.id AND la.chatbot_id = p.chatbot_id
     WHERE p.status = 'assembled'
       AND la.id IS NULL
-    ORDER BY p.discovered_at ASC
+    ORDER BY p.bot_reviewed_at DESC NULLS LAST
     LIMIT $1
+"""
+
+GET_ASSEMBLED_PRS_NOT_ANALYZED_SINCE = """
+    SELECT p.* FROM prs p
+    LEFT JOIN llm_analyses la ON la.pr_id = p.id AND la.chatbot_id = p.chatbot_id
+    WHERE p.chatbot_id = $1
+      AND p.status = 'assembled'
+      AND la.id IS NULL
+      AND p.bot_reviewed_at >= $2
+    ORDER BY p.bot_reviewed_at DESC NULLS LAST
+    LIMIT $3
+"""
+
+GET_ALL_ASSEMBLED_NOT_ANALYZED_SINCE = """
+    SELECT p.* FROM prs p
+    LEFT JOIN llm_analyses la ON la.pr_id = p.id AND la.chatbot_id = p.chatbot_id
+    WHERE p.status = 'assembled'
+      AND la.id IS NULL
+      AND p.bot_reviewed_at >= $1
+    ORDER BY p.bot_reviewed_at DESC NULLS LAST
+    LIMIT $2
 """
 
 # -- PR locking ----------------------------------------------------------------

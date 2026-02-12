@@ -411,13 +411,14 @@ async def analyze_prs(
     chatbot_id: int,
     chatbot_username: str,
     limit: int = 100,
+    since: str | None = None,
 ) -> int:
     """Run LLM analysis on all assembled, unanalyzed PRs for a chatbot.
 
     Returns the number of PRs analyzed.
     """
     repo = PRRepository(db)
-    prs = await repo.get_assembled_not_analyzed(chatbot_id=chatbot_id, limit=limit)
+    prs = await repo.get_assembled_not_analyzed(chatbot_id=chatbot_id, limit=limit, since=since)
 
     if not prs:
         logger.info(f"No unanalyzed PRs for {chatbot_username}")

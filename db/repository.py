@@ -65,8 +65,12 @@ class PRRepository:
         return await self.db.fetchall(query, (chatbot_id, limit))
 
     async def get_assembled_not_analyzed(
-        self, chatbot_id: int | None = None, limit: int = 100
+        self, chatbot_id: int | None = None, limit: int = 100, since: str | None = None
     ) -> list[dict[str, Any]]:
+        if since:
+            if chatbot_id is not None:
+                return await self.db.fetchall(Q.GET_ASSEMBLED_PRS_NOT_ANALYZED_SINCE, (chatbot_id, since, limit))
+            return await self.db.fetchall(Q.GET_ALL_ASSEMBLED_NOT_ANALYZED_SINCE, (since, limit))
         if chatbot_id is not None:
             return await self.db.fetchall(Q.GET_ASSEMBLED_PRS_NOT_ANALYZED, (chatbot_id, limit))
         return await self.db.fetchall(Q.GET_ALL_ASSEMBLED_NOT_ANALYZED, (limit,))

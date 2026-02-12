@@ -160,6 +160,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_ana.add_argument("--chatbot", help="Specific chatbot, or use --all")
     p_ana.add_argument("--all", action="store_true", dest="all_chatbots")
     p_ana.add_argument("--limit", type=int, default=100)
+    p_ana.add_argument("--since", help="Only analyze PRs reviewed since this date (e.g. '7d', '2026-02-05')")
     p_ana.add_argument("--database-url")
     p_ana.add_argument("--verbose", action="store_true")
 
@@ -274,6 +275,18 @@ async def cmd_analyze(args: argparse.Namespace) -> None:
         logger.error("MARTIAN_API_KEY required")
         return
 
+    # Parse --since: supports relative ("7d") or absolute ("2026-02-05")
+    since = None
+    if args.since:
+        import re
+        from datetime import datetime, timedelta, timezone
+        m = re.match(r"^(\d+)d$", args.since)
+        if m:
+            since = (datetime.now(timezone.utc) - timedelta(days=int(m.group(1)))).isoformat()
+        else:
+            since = args.since
+        logger.info(f"Filtering PRs reviewed since {since}")
+
     db = DBAdapter(cfg.database_url)
     await db.connect()
     try:
@@ -283,13 +296,13 @@ async def cmd_analyze(args: argparse.Namespace) -> None:
         if args.all_chatbots:
             chatbots = await repo.get_all_chatbots()
             for bot in chatbots:
-                await analyze_prs(cfg, db, bot["id"], bot["github_username"], limit=args.limit)
+                await analyze_prs(cfg, db, bot["id"], bot["github_username"], limit=args.limit, since=since)
         elif args.chatbot:
             bot = await repo.get_chatbot(args.chatbot)
             if not bot:
                 logger.error(f"Chatbot '{args.chatbot}' not found.")
                 return
-            await analyze_prs(cfg, db, bot["id"], bot["github_username"], limit=args.limit)
+            await analyze_prs(cfg, db, bot["id"], bot["github_username"], limit=args.limit, since=since)
         else:
             logger.error("Specify --chatbot or --all")
     finally:
