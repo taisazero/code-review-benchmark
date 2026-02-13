@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 
 load_dotenv(override=True)
 
-from dashboard.data import delete_prs, get_analyses, get_chatbots, get_daily_metrics, get_status_summary
+from dashboard.data import delete_prs, get_analyses, get_chatbots, get_status_summary
 from dashboard.plots import f_beta_over_time, precision_recall_scatter, status_summary_chart
 
 DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///pr_review.db")
@@ -44,6 +44,7 @@ end_date = col2.date_input("End Date", value=None)
 
 # F-beta parameter
 beta = st.sidebar.number_input("F-beta (\u03B2)", min_value=0.1, max_value=10.0, value=1.0, step=0.1)
+min_daily_prs = st.sidebar.number_input("Min PRs per day", min_value=0, value=0, step=1, help="Hide days with fewer PRs than this from the F\u03B2 chart")
 
 # -- Label filters --
 # Pre-fetch analyses to extract label options
@@ -54,9 +55,14 @@ def _parse_labels(row):
     raw = row.get("pr_labels_json")
     if raw is None:
         return None
-    if isinstance(raw, str):
-        return json.loads(raw)
-    return raw
+    lb = json.loads(raw) if isinstance(raw, str) else raw
+    # Normalize all string values to lowercase for consistent filtering/display
+    for k, v in lb.items():
+        if isinstance(v, str):
+            lb[k] = v.lower()
+        elif isinstance(v, list):
+            lb[k] = [x.lower() if isinstance(x, str) else x for x in v]
+    return lb
 
 
 _all_label_dicts = [_parse_labels(a) for a in _all_analyses]
@@ -88,9 +94,24 @@ def _label_matches(row) -> bool:
         return False
     return True
 
+# Apply label filters once — all charts and tables use this filtered list
+analyses = [a for a in _all_analyses if _label_matches(a)]
+
+start_str = str(start_date) if start_date else None
+end_str = str(end_date) if end_date else None
+
 # Status summary
 st.header("Pipeline Status")
-status_data = get_status_summary(DATABASE_URL)
+_any_label_filter = sel_domains or sel_languages or sel_pr_types or sel_severities
+if _any_label_filter:
+    # Compute status counts from label-filtered analyses (only analyzed PRs have labels)
+    from collections import Counter
+    _status_counts: Counter = Counter()
+    for _a in analyses:
+        _status_counts[(_a["github_username"], "analyzed")] += 1
+    status_data = [{"github_username": k[0], "status": k[1], "count": v} for k, v in _status_counts.items()]
+else:
+    status_data = get_status_summary(DATABASE_URL)
 if status_data:
     fig = status_summary_chart(status_data)
     if fig:
@@ -98,13 +119,32 @@ if status_data:
 else:
     st.info("No data yet. Run the pipeline to populate the database.")
 
-# F-beta over time
+# F-beta over time — computed from filtered analyses
 st.header("F\u03B2 Score Over Time")
 st.caption("Includes all PRs with at least one bot suggestion (precision not null).")
-start_str = str(start_date) if start_date else None
-end_str = str(end_date) if end_date else None
 
-daily_metrics = get_daily_metrics(DATABASE_URL, chatbot_id=chatbot_id)
+
+def _build_daily_metrics(rows: list[dict]) -> list[dict]:
+    """Aggregate filtered analyses into daily metrics for the F-beta chart."""
+    import pandas as pd
+    filtered = [r for r in rows if r.get("precision") is not None]
+    if not filtered:
+        return []
+    df = pd.DataFrame(filtered)
+    df["bot_reviewed_at"] = pd.to_datetime(df["bot_reviewed_at"], utc=True, errors="coerce")
+    df["date"] = df["bot_reviewed_at"].dt.date
+    agg = df.groupby(["date", "github_username"]).agg(
+        avg_precision=("precision", "mean"),
+        avg_recall=("recall", "mean"),
+        avg_f_beta=("f_beta", "mean"),
+        pr_count=("precision", "count"),
+    ).reset_index()
+    return agg.to_dict("records")
+
+
+daily_metrics = _build_daily_metrics(analyses)
+if min_daily_prs > 0:
+    daily_metrics = [d for d in daily_metrics if d["pr_count"] >= min_daily_prs]
 if daily_metrics:
     fig = f_beta_over_time(daily_metrics, start_date=start_str, end_date=end_str, beta=beta)
     if fig:
@@ -117,7 +157,6 @@ else:
 # Precision / Recall explorer
 st.header("Precision / Recall Explorer")
 st.caption("Includes only PRs with both % acted on and # of comments acted on defined (requires at least one bot suggestion and one code fix). PR count may be lower than the F\u03B2 chart.")
-analyses = [a for a in _all_analyses if _label_matches(a)]
 if analyses:
     fig = precision_recall_scatter(analyses, start_date=start_str, end_date=end_str, beta=beta)
     if fig:
@@ -127,8 +166,6 @@ if analyses:
 
 # Detailed analysis table
 st.header("Analysis Results")
-if not analyses:
-    analyses = get_analyses(DATABASE_URL, chatbot_id=chatbot_id)
 if analyses:
     import pandas as pd
 

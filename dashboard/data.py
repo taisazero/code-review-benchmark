@@ -6,6 +6,8 @@ import json
 import sqlite3
 from typing import Any
 
+import streamlit as st
+
 
 def _is_postgres(database_url: str) -> bool:
     return database_url.startswith("postgresql")
@@ -36,6 +38,7 @@ def _placeholder(database_url: str) -> str:
     return "%s" if _is_postgres(database_url) else "?"
 
 
+@st.cache_data(ttl=300)
 def get_chatbots(database_url: str) -> list[dict[str, Any]]:
     conn = _get_sync_connection(database_url)
     try:
@@ -44,6 +47,7 @@ def get_chatbots(database_url: str) -> list[dict[str, Any]]:
         conn.close()
 
 
+@st.cache_data(ttl=300)
 def get_analyses(database_url: str, chatbot_id: int | None = None) -> list[dict[str, Any]]:
     ph = _placeholder(database_url)
     conn = _get_sync_connection(database_url)
@@ -62,6 +66,7 @@ def get_analyses(database_url: str, chatbot_id: int | None = None) -> list[dict[
         conn.close()
 
 
+@st.cache_data(ttl=300)
 def get_status_summary(database_url: str) -> list[dict[str, Any]]:
     conn = _get_sync_connection(database_url)
     try:
@@ -91,6 +96,7 @@ def delete_prs(database_url: str, pr_ids: list[int]) -> int:
         conn.close()
 
 
+@st.cache_data(ttl=300)
 def get_daily_metrics(database_url: str, chatbot_id: int | None = None) -> list[dict[str, Any]]:
     """Get daily average precision/recall/F1 for plotting."""
     ph = _placeholder(database_url)
