@@ -15,6 +15,16 @@ def _env(key: str, default: str = "") -> str:
     return os.environ.get(key, default)
 
 
+def _parse_token_list(val: str) -> list[str]:
+    """Parse a comma-separated token list or a file with one token per line."""
+    if not val:
+        return []
+    if os.path.isfile(val):
+        with open(val) as f:
+            return [line.strip() for line in f if line.strip()]
+    return [t.strip() for t in val.split(",") if t.strip()]
+
+
 @dataclass
 class Config:
     """Legacy config — used by the original filesystem-based pipeline (main.py)."""
@@ -75,6 +85,7 @@ class DBConfig:
 
     database_url: str = field(default_factory=lambda: _env("DATABASE_URL", "sqlite:///pr_review.db"))
     github_token: str = field(default_factory=lambda: _env("GITHUB_TOKEN"))
+    github_tokens: list[str] = field(default_factory=lambda: _parse_token_list(_env("GITHUB_TOKENS")))
     gcp_project: str = field(default_factory=lambda: _env("GCP_PROJECT"))
     martian_base_url: str = field(default_factory=lambda: _env("MARTIAN_BASE_URL"))
     martian_api_key: str = field(default_factory=lambda: _env("MARTIAN_API_KEY"))

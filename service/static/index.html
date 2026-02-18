@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PR Review Dashboard</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:-apple-system,system-ui,sans-serif;display:flex;background:#fff;color:#222}
+.sidebar{width:250px;min-height:100vh;padding:14px;background:#fafafa;border-right:1px solid #e0e0e0;position:fixed;overflow-y:auto;top:0;bottom:0}
+.sidebar h3{margin:14px 0 6px;font-size:13px;color:#333;text-transform:uppercase;letter-spacing:.5px}
+.sidebar h3:first-child{margin-top:0}
+.sidebar label{display:block;font-size:12px;color:#555;margin:5px 0 2px}
+.sidebar input[type="date"],.sidebar input[type="number"]{width:100%;padding:4px 6px;border:1px solid #ccc;border-radius:3px;font-size:12px}
+.row{display:flex;gap:6px}.row>div{flex:1}
+.cb-group{max-height:110px;overflow-y:auto;padding:3px 4px;border:1px solid #e0e0e0;border-radius:3px;background:#fff}
+.search-input{width:100%;padding:3px 6px;border:1px solid #ccc;border-radius:3px;font-size:11px;margin-bottom:2px}
+.cb-group label{display:flex;align-items:center;gap:4px;font-size:11px;padding:1px 0;cursor:pointer}
+.cb-group input{margin:0}
+.main{margin-left:250px;padding:20px 28px;flex:1;max-width:1200px}
+h1{font-size:20px;margin-bottom:16px}
+h2{font-size:16px;margin:20px 0 4px;border-bottom:1px solid #e0e0e0;padding-bottom:4px}
+.caption{color:#888;font-size:11px;margin-bottom:6px}
+table{border-collapse:collapse;width:100%;margin-top:6px}
+th{text-align:left;padding:7px 10px;background:#f5f5f5;border-bottom:2px solid #ddd;font-size:12px}
+td{padding:5px 10px;border-bottom:1px solid #eee;font-size:12px}
+tr:hover td{background:#f9f9f9}
+.n{text-align:right;font-variant-numeric:tabular-nums}
+.chart{width:100%;height:370px}
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <h3>Filters</h3>
+  <label>Chatbot</label>
+  <div class="cb-group" id="f-chatbot"></div>
+  <div class="row">
+    <div><label>Start Date</label><input type="date" id="start-date"></div>
+    <div><label>End Date</label><input type="date" id="end-date"></div>
+  </div>
+  <label>F-beta (&beta;)</label>
+  <input type="number" id="beta" value="1.0" min="0.1" max="10" step="0.1">
+  <label>Min PRs per day</label>
+  <input type="number" id="min-prs" value="0" min="0" step="1">
+  <label>Diff lines range</label>
+  <div class="row">
+    <div><input type="number" id="diff-min" value="0" min="0" step="50"></div>
+    <div><input type="number" id="diff-max" value="2000" min="0" step="50"></div>
+  </div>
+  <h3>Label Filters</h3>
+  <label>Domain</label><div class="cb-group" id="f-domain"></div>
+  <label>Language</label><input type="text" class="search-input" placeholder="Type to filter..." oninput="filterCbs('f-language',this.value)"><div class="cb-group" id="f-language"></div>
+  <label>PR Type</label><div class="cb-group" id="f-pr-type"></div>
+  <label>Severity</label><div class="cb-group" id="f-severity"></div>
+</div>
+<div class="main">
+  <h1>PR Review Bot Analysis Dashboard</h1>
+  <h2>F&beta; Score Over Time</h2>
+  <p class="caption">Includes all PRs with at least one bot suggestion (precision not null).</p>
+  <div id="chart-fbeta" class="chart"></div>
+  <h2>Precision / Recall Explorer</h2>
+  <p class="caption">One dot per chatbot, aggregated. Bubble size = PR count.</p>
+  <div id="chart-scatter" class="chart"></div>
+  <h2>Leaderboard</h2>
+  <div id="leaderboard"></div>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+const checked=cls=>$$('.'+cls).filter(e=>e.checked).map(e=>e.value);
+
+function filterCbs(id,query){
+  const q=query.toLowerCase();
+  document.getElementById(id).querySelectorAll('label').forEach(lbl=>{
+    lbl.style.display=lbl.textContent.toLowerCase().includes(q)?'':'none';
+  });
+}
+
+function makeCbs(id,vals,cls){
+  const el=document.getElementById(id);
+  el.innerHTML=vals.map(v=>`<label><input type="checkbox" class="${cls}" value="${v}"> ${v}</label>`).join('');
+  el.querySelectorAll('input').forEach(cb=>cb.addEventListener('change',refresh));
+}
+
+async function init(){
+  const o=await fetch('/api/options').then(r=>r.json());
+  makeCbs('f-chatbot',o.chatbots,'cb-bot');
+  makeCbs('f-domain',o.domains,'cb-dom');
+  makeCbs('f-language',o.languages,'cb-lang');
+  makeCbs('f-pr-type',o.pr_types,'cb-prt');
+  makeCbs('f-severity',o.severities,'cb-sev');
+  // Don't auto-fill dates — match dashboard default of no date filter
+  for(const id of['start-date','end-date','beta','min-prs','diff-min','diff-max'])
+    document.getElementById(id).addEventListener('change',refresh);
+  refresh();
+}
+
+function qs(){
+  const p=new URLSearchParams();
+  const sd=$('#start-date').value, ed=$('#end-date').value;
+  if(sd) p.set('start_date',sd);
+  if(ed) p.set('end_date',ed);
+  p.set('beta',$('#beta').value||'1.0');
+  const mp=$('#min-prs').value;
+  if(mp&&mp!=='0') p.set('min_prs_per_day',mp);
+  const dmin=$('#diff-min').value, dmax=$('#diff-max').value;
+  if(dmin&&dmin!=='0') p.set('diff_lines_min',dmin);
+  if(dmax) p.set('diff_lines_max',dmax);
+  const j=(cls,key)=>{const v=checked(cls);if(v.length)p.set(key,v.join(','));};
+  j('cb-bot','chatbot');j('cb-dom','domain');j('cb-lang','language');j('cb-prt','pr_type');j('cb-sev','severity');
+  return p.toString();
+}
+
+let seq=0;
+async function refresh(){
+  const id=++seq, q=qs();
+  const [m,lb]=await Promise.all([
+    fetch('/api/daily-metrics?'+q).then(r=>r.json()),
+    fetch('/api/leaderboard?'+q).then(r=>r.json()),
+  ]);
+  if(id!==seq) return;
+  renderFbeta(m);
+  renderScatter(lb);
+  renderTable(lb);
+}
+
+function renderFbeta(data){
+  const byBot={};
+  for(const r of data.series){
+    if(!byBot[r.chatbot]) byBot[r.chatbot]={x:[],y:[],text:[],name:r.chatbot,mode:'lines+markers',type:'scatter'};
+    const t=byBot[r.chatbot];
+    t.x.push(r.date);
+    t.y.push(r.avg_f_beta);
+    t.text.push(`P:${r.avg_precision.toFixed(2)} R:${r.avg_recall.toFixed(2)} n:${r.pr_count}`);
+  }
+  const b=$('#beta').value||'1.0';
+  Plotly.newPlot('chart-fbeta',Object.values(byBot),{
+    title:`F${b} Score Over Time (Daily Average)`,
+    yaxis:{range:[0,1],title:`F${b} Score`},
+    xaxis:{title:'Date',tickformat:'%Y-%m-%d'},
+    hovermode:'x unified',
+    margin:{t:40,b:40,l:50,r:20},
+    legend:{orientation:'h',y:-0.2},
+  },{responsive:true});
+}
+
+function renderScatter(data){
+  if(!data.rows.length){Plotly.purge('chart-scatter');return;}
+  const maxPrs=Math.max(...data.rows.map(r=>r.total_prs));
+  const trace={
+    x:data.rows.map(r=>r.precision),
+    y:data.rows.map(r=>r.recall),
+    text:data.rows.map(r=>`${r.chatbot}<br>F:${r.f_score!=null?r.f_score.toFixed(3):'—'} n:${r.total_prs}`),
+    marker:{size:data.rows.map(r=>10+40*r.total_prs/maxPrs)},
+    mode:'markers',type:'scatter',hoverinfo:'text',
+  };
+  const b=$('#beta').value||'1.0';
+  Plotly.newPlot('chart-scatter',[trace],{
+    title:`% Acted On vs # Comments Acted On`,
+    xaxis:{range:[0,1.05],title:'Precision (% Acted On)'},
+    yaxis:{range:[0,1.05],title:'Recall'},
+    margin:{t:40,b:40,l:50,r:20},
+    hovermode:'closest',
+  },{responsive:true});
+}
+
+function renderTable(data){
+  const b=$('#beta').value||'1.0';
+  let h=`<table><thead><tr><th>Chatbot</th><th class="n">Precision</th><th class="n">Recall</th><th class="n">F${b}</th><th class="n">PRs</th></tr></thead><tbody>`;
+  for(const r of data.rows)
+    h+=`<tr><td>${r.chatbot}</td><td class="n">${r.precision.toFixed(4)}</td><td class="n">${r.recall.toFixed(4)}</td><td class="n">${r.f_score!=null?r.f_score.toFixed(4):'—'}</td><td class="n">${r.total_prs}</td></tr>`;
+  h+='</tbody></table>';
+  $('#leaderboard').innerHTML=h;
+}
+
+init();
+</script>
+</body>
+</html>

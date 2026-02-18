@@ -314,6 +314,43 @@ async def _fetch_pr_summary(
     }
 
 
+# -- Token pool for multi-token rotation ---------------------------------------
+
+class TokenPool:
+    """Manages multiple GitHubEnrichClient instances, rotating on rate-limit."""
+
+    def __init__(self, tokens: list[str], concurrency: int = 10):
+        self._entries = [
+            {"client": GitHubEnrichClient(t, concurrency), "reset_at": 0}
+            for t in tokens
+        ]
+        self._idx = 0
+
+    def get(self) -> GitHubEnrichClient | None:
+        """Round-robin to next non-rate-limited client. None if all exhausted."""
+        now = time.time()
+        n = len(self._entries)
+        for _ in range(n):
+            entry = self._entries[self._idx]
+            self._idx = (self._idx + 1) % n
+            if entry["reset_at"] <= now:
+                return entry["client"]
+        return None
+
+    def mark_limited(self, client: GitHubEnrichClient, reset_at: int) -> None:
+        for e in self._entries:
+            if e["client"] is client:
+                e["reset_at"] = reset_at
+                break
+
+    def earliest_reset(self) -> float:
+        return min(e["reset_at"] for e in self._entries)
+
+    async def close(self) -> None:
+        for e in self._entries:
+            await e["client"].close()
+
+
 # -- Main enrichment logic -----------------------------------------------------
 
 def _step_index(step: str | None) -> int:
@@ -400,6 +437,7 @@ async def enrich_loop(
     cfg: DBConfig,
     db: DBAdapter,
     chatbot_id: int,
+    chatbot_username: str | None = None,
     max_prs: int | None = None,
     one_shot: bool = False,
 ) -> int:
@@ -407,27 +445,43 @@ async def enrich_loop(
 
     If one_shot=True, processes available PRs once and returns.
     If one_shot=False, runs indefinitely (daemon mode), sleeping when idle or rate-limited.
+    If chatbot_username is provided, assembles enriched PRs after each pass.
 
     Returns total number of PRs enriched.
     """
+    from pipeline.assemble import assemble_enriched_prs
+
     repo = PRRepository(db)
-    gh = GitHubEnrichClient(cfg.github_token)
+    tokens = cfg.github_tokens if cfg.github_tokens else [cfg.github_token]
+    pool = TokenPool(tokens)
+    n_tokens = len(tokens)
+    logger.info(f"Using {n_tokens} GitHub token(s)")
+
     enriched_count = 0
     batch_size = 100
     limit = max_prs or 10000
 
     async def _enrich_one(pr_row: dict) -> bool:
-        """Enrich a single PR with locking. Returns True if enriched."""
+        """Enrich a single PR with locking and token rotation. Returns True if enriched."""
         pr_id = pr_row["id"]
         locked = await repo.lock_pr(pr_id, cfg.worker_id, cfg.lock_timeout_minutes)
         if not locked:
             return False
         try:
-            await enrich_single_pr(gh, repo, pr_row, cfg)
-            return True
-        except RateLimitExhausted:
-            await repo.unlock_pr(pr_id)
-            raise
+            while True:
+                gh = pool.get()
+                if gh is None:
+                    wait = max(0, pool.earliest_reset() - time.time()) + 5
+                    logger.warning(f"All {n_tokens} tokens rate-limited, sleeping {wait:.0f}s")
+                    await asyncio.sleep(wait)
+                    continue
+                try:
+                    await enrich_single_pr(gh, repo, pr_row, cfg)
+                    return True
+                except RateLimitExhausted as e:
+                    pool.mark_limited(gh, e.reset_at)
+                    logger.info(f"Token rate-limited, rotating ({n_tokens} total)")
+                    continue
         except Exception as e:
             logger.error(f"Error enriching PR {pr_row['repo_name']}#{pr_row['pr_number']}: {e}")
             await repo.mark_error(pr_id, str(e))
@@ -447,22 +501,14 @@ async def enrich_loop(
             # Process PRs in concurrent batches
             for i in range(0, len(prs), batch_size):
                 batch = prs[i : i + batch_size]
-                try:
-                    results = await asyncio.gather(
-                        *[_enrich_one(pr_row) for pr_row in batch],
-                        return_exceptions=True,
-                    )
-                except RateLimitExhausted as e:
-                    wait = max(0, e.reset_at - int(time.time())) + 5
-                    logger.warning(f"Rate limit hit. Sleeping {wait}s until reset...")
-                    await asyncio.sleep(wait)
-                    continue
+                results = await asyncio.gather(
+                    *[_enrich_one(pr_row) for pr_row in batch],
+                    return_exceptions=True,
+                )
 
                 for result in results:
-                    if isinstance(result, RateLimitExhausted):
-                        wait = max(0, result.reset_at - int(time.time())) + 5
-                        logger.warning(f"Rate limit hit. Sleeping {wait}s until reset...")
-                        await asyncio.sleep(wait)
+                    if isinstance(result, Exception):
+                        logger.error(f"Unexpected error in batch: {result}")
                     elif result is True:
                         enriched_count += 1
 
@@ -472,10 +518,16 @@ async def enrich_loop(
                     logger.info(f"Reached max_prs limit ({max_prs})")
                     return enriched_count
 
+            # Assemble any newly enriched PRs
+            if chatbot_username:
+                assembled = await assemble_enriched_prs(db, chatbot_id, chatbot_username)
+                if assembled:
+                    logger.info(f"Assembled {assembled} PRs")
+
             if one_shot:
                 break
 
     finally:
-        await gh.close()
+        await pool.close()
 
     return enriched_count

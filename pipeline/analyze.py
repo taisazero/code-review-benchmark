@@ -6,6 +6,8 @@ import asyncio
 import json
 import logging
 
+from openai import BadRequestError
+
 from config import DBConfig
 from db.connection import DBAdapter
 from db.repository import PRRepository
@@ -439,7 +441,12 @@ async def analyze_prs(
 
     async def _run(pr_row: dict) -> bool:
         async with sem:
-            return await analyze_single_pr(llm, repo, pr_row, chatbot_username, cfg.martian_model_name, beta=cfg.f_beta)
+            try:
+                return await analyze_single_pr(llm, repo, pr_row, chatbot_username, cfg.martian_model_name, beta=cfg.f_beta)
+            except BadRequestError as exc:
+                logger.error(f"LLM 400 for {pr_row['repo_name']}#{pr_row['pr_number']}: {exc}")
+                await repo.mark_error(pr_row["id"], f"LLM 400: {exc}")
+                return False
 
     try:
         tasks = [asyncio.create_task(_run(pr_row)) for pr_row in prs]

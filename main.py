@@ -13,7 +13,7 @@ import logging
 import sys
 import time
 
-from config import DEFAULT_CHATBOT_USERNAMES, Config, DBConfig
+from config import DEFAULT_CHATBOT_USERNAMES, Config, DBConfig, _parse_token_list
 
 logger = logging.getLogger("pr_review_dataset")
 
@@ -146,13 +146,15 @@ def build_parser() -> argparse.ArgumentParser:
 
     # enrich
     p_enr = sub.add_parser("enrich", help="Enrich pending PRs via GitHub API")
-    p_enr.add_argument("--chatbot", required=True)
+    p_enr.add_argument("--chatbot", help="Specific chatbot, or use --all")
+    p_enr.add_argument("--all", action="store_true", dest="all_chatbots", help="Enrich for all registered chatbots")
     p_enr.add_argument("--one-shot", action="store_true")
     p_enr.add_argument("--max-prs", type=int)
     p_enr.add_argument("--max-pr-commits", type=int, help="Skip PRs with more commits than this (default: 50)")
     p_enr.add_argument("--max-pr-changed-lines", type=int, help="Skip PRs with more changed lines than this (default: 2000)")
     p_enr.add_argument("--database-url")
     p_enr.add_argument("--github-token")
+    p_enr.add_argument("--github-tokens", help="Comma-separated tokens or path to file (one per line)")
     p_enr.add_argument("--verbose", action="store_true")
 
     # analyze
@@ -242,7 +244,6 @@ async def cmd_enrich(args: argparse.Namespace) -> None:
     from db.connection import DBAdapter
     from db.repository import PRRepository
     from db.schema import create_tables
-    from pipeline.assemble import assemble_enriched_prs
     from pipeline.enrich import enrich_loop
 
     cfg = DBConfig(verbose=args.verbose)
@@ -254,8 +255,23 @@ async def cmd_enrich(args: argparse.Namespace) -> None:
         cfg.max_pr_commits = args.max_pr_commits
     if args.max_pr_changed_lines is not None:
         cfg.max_pr_changed_lines = args.max_pr_changed_lines
-    if not cfg.github_token:
-        logger.error("GITHUB_TOKEN required")
+
+    # Build token list: CLI --github-tokens > env GITHUB_TOKENS > single token fallback
+    tokens: list[str] = []
+    if args.github_tokens:
+        tokens = _parse_token_list(args.github_tokens)
+    elif cfg.github_tokens:
+        tokens = cfg.github_tokens
+    if not tokens and cfg.github_token:
+        tokens = [cfg.github_token]
+    cfg.github_tokens = tokens
+
+    if not cfg.github_tokens:
+        logger.error("GITHUB_TOKEN or GITHUB_TOKENS required")
+        return
+
+    if not args.chatbot and not args.all_chatbots:
+        logger.error("Specify --chatbot or --all")
         return
 
     db = DBAdapter(cfg.database_url)
@@ -263,16 +279,49 @@ async def cmd_enrich(args: argparse.Namespace) -> None:
     try:
         await create_tables(db)
         repo = PRRepository(db)
-        chatbot = await repo.get_chatbot(args.chatbot)
-        if not chatbot:
-            logger.error(f"Chatbot '{args.chatbot}' not found. Run discover first.")
-            return
 
-        enriched = await enrich_loop(cfg, db, chatbot["id"], max_prs=args.max_prs, one_shot=args.one_shot)
-        logger.info(f"Enriched {enriched} PRs")
+        if args.all_chatbots:
+            chatbots = await repo.get_all_chatbots()
+            if not chatbots:
+                logger.error("No chatbots found. Run discover first.")
+                return
+            logger.info(f"Enriching PRs for {len(chatbots)} chatbot(s)")
+        else:
+            bot = await repo.get_chatbot(args.chatbot)
+            if not bot:
+                logger.error(f"Chatbot '{args.chatbot}' not found. Run discover first.")
+                return
+            chatbots = [bot]
 
-        assembled = await assemble_enriched_prs(db, chatbot["id"], chatbot["github_username"])
-        logger.info(f"Assembled {assembled} PRs")
+        if len(chatbots) > 1 and not args.one_shot:
+            # Daemon mode with multiple chatbots: round-robin one-shot passes
+            total = 0
+            while True:
+                any_work = False
+                for chatbot in chatbots:
+                    enriched = await enrich_loop(
+                        cfg, db, chatbot["id"],
+                        chatbot_username=chatbot["github_username"],
+                        max_prs=args.max_prs, one_shot=True,
+                    )
+                    if enriched > 0:
+                        any_work = True
+                        total += enriched
+                    if args.max_prs and total >= args.max_prs:
+                        logger.info(f"Reached max_prs limit ({args.max_prs})")
+                        return
+                if not any_work:
+                    logger.info("No pending PRs for any chatbot, sleeping 5 minutes...")
+                    await asyncio.sleep(300)
+        else:
+            for chatbot in chatbots:
+                logger.info(f"--- Enriching for {chatbot['github_username']} ---")
+                enriched = await enrich_loop(
+                    cfg, db, chatbot["id"],
+                    chatbot_username=chatbot["github_username"],
+                    max_prs=args.max_prs, one_shot=args.one_shot,
+                )
+                logger.info(f"Enriched {enriched} PRs")
     finally:
         await db.close()
 
