@@ -1,7 +1,7 @@
 [project]
 name = "pr-review-dataset"
 version = "0.1.0"
-description = "Add your description here"
+description = "ETL pipeline for the online code review benchmark: discovers, enriches, and analyzes PR reviews from GitHub"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [

@@ -1,6 +1,6 @@
 # PR Review Dataset — API Service
 
-Axum-based Rust API that serves the review dashboard. Loads PR analysis data from PostgreSQL into memory at startup and serves it via JSON endpoints with a built-in HTML dashboard.
+Dashboard server for the [online code review benchmark](../README.md). Axum-based Rust API that serves the review dashboard. Loads PR analysis data from PostgreSQL into memory at startup and serves it via JSON endpoints with a built-in HTML dashboard.
 
 ## Environment Variables
 

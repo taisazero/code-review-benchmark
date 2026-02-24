@@ -1,5 +1,7 @@
 # PR Review Dataset — ETL Pipeline
 
+Data pipeline for the [online code review benchmark](../README.md). Continuously discovers PRs that code review bots have commented on, fetches full PR data from GitHub, and uses an LLM to analyze whether the bot's suggestions identified real issues and whether developers acted on them.
+
 Discovers PRs reviewed by a chatbot (via BigQuery), enriches them with GitHub API data, assembles a unified timeline, and runs LLM analysis. Everything is stored in a database (SQLite or PostgreSQL).
 
 ## Setup
@@ -49,7 +51,7 @@ chmod +x cloud-sql-proxy
 
 # Run in a separate terminal (keep it running)
 cloud-sql-proxy PROJECT:REGION:INSTANCE --port 5433
-# e.g. cloud-sql-proxy feisty-gasket-486610-h2:us-central1:crb-main --port 5433
+# e.g. cloud-sql-proxy $GCP_SQL_INSTANCE --port 5433
 ```
 
 ### 3. Update `.env`

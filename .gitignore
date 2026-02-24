@@ -22,3 +22,18 @@ target/
 
 # Output data
 output/
+results/
+
+# Generated exports
+*.xlsx
+
+# Test and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Linters
+.ruff_cache/
+
+# Logs
+*.log
