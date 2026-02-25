@@ -11,7 +11,7 @@
       width="125" height="125"
     />
     <img
-      src="./images/light.png"
+      src="./images/light.jpg"
       alt="Code Review Benchmark Logo"
       width="125" height="125"
     />
