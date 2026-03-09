@@ -89,6 +89,51 @@
               "tp": 2,
               "fp": 5,
               "fn": 2
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 4
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 4
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 4
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 3
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 6,
+              "fn": 3
+            },
+            "cubic-dev": {
+              "tp": 3,
+              "fp": 18,
+              "fn": 1
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 6,
+              "fn": 3
             }
           }
         },
@@ -179,6 +224,51 @@
               "tp": 1,
               "fp": 2,
               "fn": 3
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 0,
+              "fp": 2,
+              "fn": 4
+            },
+            "mesa": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 2
             }
           }
         },
@@ -268,6 +358,51 @@
             "greptile-v4": {
               "tp": 1,
               "fp": 4,
+              "fn": 1
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 6,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 0,
+              "fp": 2,
+              "fn": 2
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 5,
               "fn": 1
             }
           }
@@ -359,6 +494,51 @@
               "tp": 0,
               "fp": 5,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 1
+            },
+            "sourcery": {
+              "tp": 0,
+              "fp": 6,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 1,
+              "fp": 5,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 1
             }
           }
         },
@@ -449,6 +629,51 @@
               "tp": 0,
               "fp": 4,
               "fn": 3
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 5,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 5,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 0,
+              "fp": 2,
+              "fn": 3
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 2,
+              "fn": 2
             }
           }
         },
@@ -539,6 +764,51 @@
               "tp": 2,
               "fp": 3,
               "fn": 0
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 2,
+              "fn": 1
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 13,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 5,
+              "fn": 1
             }
           }
         },
@@ -629,6 +899,51 @@
               "tp": 1,
               "fp": 3,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 0
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 9,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 5,
+              "fn": 2
             }
           }
         },
@@ -719,6 +1034,51 @@
               "tp": 1,
               "fp": 5,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-a": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 1
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 0
             }
           }
         },
@@ -808,6 +1168,51 @@
             "greptile-v4": {
               "tp": 2,
               "fp": 1,
+              "fn": 0
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-nano": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-ultra": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-a": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 1
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 8,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 2,
+              "fp": 3,
               "fn": 0
             }
           }
@@ -899,6 +1304,51 @@
               "tp": 2,
               "fp": 2,
               "fn": 3
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 5
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 5
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 5
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 4
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 4
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 4
+            },
+            "sourcery": {
+              "tp": 4,
+              "fp": 3,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 4,
+              "fp": 3,
+              "fn": 1
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 5,
+              "fn": 5
             }
           }
         },
@@ -988,6 +1438,51 @@
             "greptile-v4": {
               "tp": 0,
               "fp": 1,
+              "fn": 3
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "sourcery": {
+              "tp": 0,
+              "fp": 5,
+              "fn": 3
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 30,
+              "fn": 1
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 10,
               "fn": 3
             }
           }
@@ -1079,6 +1574,51 @@
               "tp": 3,
               "fp": 2,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 4
+            },
+            "mra-ultra": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 4
+            },
+            "mra-a": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 4,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 4,
+              "fp": 6,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 2,
+              "fp": 5,
+              "fn": 2
             }
           }
         },
@@ -1168,6 +1708,51 @@
             "greptile-v4": {
               "tp": 1,
               "fp": 2,
+              "fn": 1
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 3,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 7,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 4,
               "fn": 1
             }
           }
@@ -1259,6 +1844,51 @@
               "tp": 2,
               "fp": 3,
               "fn": 0
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 4,
+              "fn": 0
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 7,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 5,
+              "fn": 1
             }
           }
         },
@@ -1349,6 +1979,51 @@
               "tp": 1,
               "fp": 1,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 6,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 0
             }
           }
         },
@@ -1439,6 +2114,51 @@
               "tp": 3,
               "fp": 2,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 3
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 5,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 4,
+              "fp": 5,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 3
             }
           }
         },
@@ -1528,6 +2248,51 @@
             "greptile-v4": {
               "tp": 0,
               "fp": 5,
+              "fn": 3
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 3
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 0,
+              "fp": 2,
+              "fn": 3
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 6,
               "fn": 3
             }
           }
@@ -1619,6 +2384,51 @@
               "tp": 3,
               "fp": 5,
               "fn": 0
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-ultra": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-a": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0
+            },
+            "entelligence": {
+              "tp": 3,
+              "fp": 2,
+              "fn": 0
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 10,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 3,
+              "fp": 11,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 2,
+              "fp": 6,
+              "fn": 1
             }
           }
         },
@@ -1708,6 +2518,51 @@
             "greptile-v4": {
               "tp": 1,
               "fp": 6,
+              "fn": 2
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-ultra": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 5,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 8,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 3,
+              "fp": 12,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 5,
               "fn": 2
             }
           }
@@ -1799,6 +2654,51 @@
               "tp": 1,
               "fp": 3,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 6,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 1
             }
           }
         },
@@ -1886,6 +2786,51 @@
               "fn": 2
             },
             "greptile-v4": {
+              "tp": 1,
+              "fp": 3,
+              "fn": 2
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 8,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 3,
+              "fp": 4,
+              "fn": 0
+            },
+            "mesa": {
               "tp": 1,
               "fp": 3,
               "fn": 2
@@ -1979,6 +2924,51 @@
               "tp": 1,
               "fp": 3,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 6,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 6,
+              "fn": 2
             }
           }
         },
@@ -2066,6 +3056,51 @@
               "fn": 1
             },
             "greptile-v4": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 0
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-nano": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "entelligence": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 0
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 0
+            },
+            "cubic-dev": {
+              "tp": 1,
+              "fp": 3,
+              "fn": 1
+            },
+            "mesa": {
               "tp": 2,
               "fp": 3,
               "fn": 0
@@ -2159,6 +3194,51 @@
               "tp": 1,
               "fp": 0,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 3,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 1
             }
           }
         },
@@ -2249,6 +3329,51 @@
               "tp": 1,
               "fp": 2,
               "fn": 0
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 1
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 3,
+              "fn": 0
+            },
+            "cubic-dev": {
+              "tp": 1,
+              "fp": 5,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 8,
+              "fn": 0
             }
           }
         },
@@ -2336,6 +3461,51 @@
               "fn": 0
             },
             "greptile-v4": {
+              "tp": 3,
+              "fp": 3,
+              "fn": 0
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 7,
+              "fn": 3
+            },
+            "sourcery": {
+              "tp": 3,
+              "fp": 4,
+              "fn": 0
+            },
+            "cubic-dev": {
+              "tp": 3,
+              "fp": 5,
+              "fn": 0
+            },
+            "mesa": {
               "tp": 3,
               "fp": 3,
               "fn": 0
@@ -2429,6 +3599,51 @@
               "tp": 0,
               "fp": 2,
               "fn": 2
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 5,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 10,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 5,
+              "fn": 2
             }
           }
         },
@@ -2519,6 +3734,51 @@
               "tp": 1,
               "fp": 3,
               "fn": 0
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "sourcery": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 1
             }
           }
         },
@@ -2608,6 +3868,51 @@
             "greptile-v4": {
               "tp": 2,
               "fp": 2,
+              "fn": 3
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-nano": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-ultra": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-a": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 3
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 5
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 5,
+              "fn": 3
+            },
+            "cubic-dev": {
+              "tp": 4,
+              "fp": 7,
+              "fn": 1
+            },
+            "mesa": {
+              "tp": 2,
+              "fp": 5,
               "fn": 3
             }
           }
@@ -2699,6 +4004,51 @@
               "tp": 1,
               "fp": 2,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-nano": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 6,
+              "fn": 1
             }
           }
         },
@@ -2789,6 +4139,51 @@
               "tp": 1,
               "fp": 2,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 8,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 6,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 2
             }
           }
         },
@@ -2879,6 +4274,51 @@
               "tp": 0,
               "fp": 3,
               "fn": 4
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 4
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 4
+            },
+            "mra-ultra": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-a": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 4
+            },
+            "sourcery": {
+              "tp": 4,
+              "fp": 10,
+              "fn": 0
+            },
+            "cubic-dev": {
+              "tp": 0,
+              "fp": 2,
+              "fn": 4
+            },
+            "mesa": {
+              "tp": 3,
+              "fp": 5,
+              "fn": 1
             }
           }
         },
@@ -2966,6 +4406,51 @@
               "fn": 0
             },
             "greptile-v4": {
+              "tp": 3,
+              "fp": 2,
+              "fn": 0
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-a": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 3
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 3,
+              "fp": 5,
+              "fn": 0
+            },
+            "mesa": {
               "tp": 3,
               "fp": 2,
               "fn": 0
@@ -3059,6 +4544,51 @@
               "tp": 2,
               "fp": 2,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 3
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 2,
+              "fp": 8,
+              "fn": 1
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 5,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 3,
+              "fp": 19,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 2,
+              "fp": 6,
+              "fn": 1
             }
           }
         },
@@ -3148,6 +4678,46 @@
             "greptile-v4": {
               "tp": 1,
               "fp": 3,
+              "fn": 1
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 5,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 4,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 5,
               "fn": 1
             }
           }
@@ -3239,6 +4809,51 @@
               "tp": 1,
               "fp": 2,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 1,
+              "fp": 8,
+              "fn": 1
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 7,
+              "fn": 1
             }
           }
         },
@@ -3329,6 +4944,51 @@
               "tp": 1,
               "fp": 3,
               "fn": 0
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 3,
+              "fn": 0
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 0
+            },
+            "cubic-dev": {
+              "tp": 1,
+              "fp": 3,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 1
             }
           }
         },
@@ -3419,6 +5079,51 @@
               "tp": 2,
               "fp": 3,
               "fn": 4
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 5
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 6
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 5
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 4
+            },
+            "mra-a": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 4
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 2,
+              "fn": 5
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 6,
+              "fn": 5
+            },
+            "cubic-dev": {
+              "tp": 4,
+              "fp": 29,
+              "fn": 2
+            },
+            "mesa": {
+              "tp": 4,
+              "fp": 11,
+              "fn": 2
             }
           }
         },
@@ -3509,6 +5214,51 @@
               "tp": 3,
               "fp": 4,
               "fn": 0
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-nano": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-ultra": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 1
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 3,
+              "fp": 8,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 1
             }
           }
         },
@@ -3596,6 +5346,51 @@
               "fn": 1
             },
             "greptile-v4": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 0
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 6,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 11,
+              "fn": 0
+            },
+            "mesa": {
               "tp": 2,
               "fp": 3,
               "fn": 0
@@ -3689,6 +5484,51 @@
               "tp": 1,
               "fp": 8,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-nano": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 4,
+              "fn": 0
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 14,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 6,
+              "fn": 2
             }
           }
         },
@@ -3776,6 +5616,51 @@
               "fn": 0
             },
             "greptile-v4": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 0
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-nano": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 1
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 0
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 4,
+              "fn": 0
+            },
+            "mesa": {
               "tp": 2,
               "fp": 2,
               "fn": 0
@@ -3869,6 +5754,51 @@
               "tp": 2,
               "fp": 1,
               "fn": 0
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 1
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 2,
+              "fn": 0
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 3,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 0
             }
           }
         },
@@ -3959,6 +5889,51 @@
               "tp": 1,
               "fp": 7,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-b": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 3,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 1,
+              "fp": 4,
+              "fn": 1
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 2
             }
           }
         },
@@ -4049,6 +6024,51 @@
               "tp": 4,
               "fp": 9,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-nano": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-ultra": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-a": {
+              "tp": 4,
+              "fp": 0,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 3,
+              "fn": 5
+            },
+            "sourcery": {
+              "tp": 5,
+              "fp": 2,
+              "fn": 0
+            },
+            "cubic-dev": {
+              "tp": 5,
+              "fp": 27,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 2,
+              "fp": 11,
+              "fn": 3
             }
           }
         },
@@ -4139,6 +6159,51 @@
               "tp": 2,
               "fp": 4,
               "fn": 0
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-nano": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-ultra": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 1,
+              "fn": 1
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 2,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 10,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 0,
+              "fp": 8,
+              "fn": 2
             }
           }
         },
@@ -4229,6 +6294,51 @@
               "tp": 4,
               "fp": 6,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 5
+            },
+            "mra-ultra": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 5
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 4
+            },
+            "entelligence": {
+              "tp": 0,
+              "fp": 4,
+              "fn": 5
+            },
+            "sourcery": {
+              "tp": 3,
+              "fp": 3,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 4,
+              "fp": 14,
+              "fn": 1
+            },
+            "mesa": {
+              "tp": 3,
+              "fp": 5,
+              "fn": 2
             }
           }
         },
@@ -4319,6 +6429,51 @@
               "tp": 2,
               "fp": 7,
               "fn": 2
+            },
+            "mra-max": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 4
+            },
+            "mra-nano": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-ultra": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-a": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 3
+            },
+            "sourcery": {
+              "tp": 2,
+              "fp": 4,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 3,
+              "fp": 14,
+              "fn": 1
+            },
+            "mesa": {
+              "tp": 1,
+              "fp": 7,
+              "fn": 3
             }
           }
         },
@@ -4409,6 +6564,51 @@
               "tp": 3,
               "fp": 7,
               "fn": 2
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 4
+            },
+            "mra-nano": {
+              "tp": 0,
+              "fp": 1,
+              "fn": 5
+            },
+            "mra-ultra": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 2
+            },
+            "mra-b": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 4
+            },
+            "mra-a": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 2
+            },
+            "entelligence": {
+              "tp": 3,
+              "fp": 7,
+              "fn": 2
+            },
+            "sourcery": {
+              "tp": 3,
+              "fp": 3,
+              "fn": 2
+            },
+            "cubic-dev": {
+              "tp": 0,
+              "fp": 2,
+              "fn": 5
+            },
+            "mesa": {
+              "tp": 4,
+              "fp": 12,
+              "fn": 1
             }
           }
         },
@@ -4499,6 +6699,51 @@
               "tp": 1,
               "fp": 4,
               "fn": 1
+            },
+            "mra-max": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-nano": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "mra-ultra": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-b": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "mra-a": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "entelligence": {
+              "tp": 2,
+              "fp": 1,
+              "fn": 0
+            },
+            "sourcery": {
+              "tp": 1,
+              "fp": 5,
+              "fn": 1
+            },
+            "cubic-dev": {
+              "tp": 2,
+              "fp": 12,
+              "fn": 0
+            },
+            "mesa": {
+              "tp": 2,
+              "fp": 10,
+              "fn": 0
             }
           }
         }
@@ -4510,15 +6755,24 @@
         "claude",
         "coderabbit",
         "copilot",
+        "cubic-dev",
         "devin",
+        "entelligence",
         "gemini",
         "graphite",
         "greptile",
         "greptile-v4",
         "kg",
+        "mesa",
+        "mra-a",
+        "mra-b",
+        "mra-max",
+        "mra-nano",
+        "mra-ultra",
         "propel",
         "qodo",
-        "qodo-v2"
+        "qodo-v2",
+        "sourcery"
       ],
       "dimensions": {
         "language": [
@@ -4587,22 +6841,58 @@
         ]
       },
       "overall_metrics": {
-        "greptile-v4": {
-          "precision": 31.6,
-          "recall": 56.9,
-          "f1": 40.6,
-          "tp": 78,
-          "fp": 169,
-          "fn": 59,
+        "mra-max": {
+          "precision": 67.2,
+          "recall": 31.4,
+          "f1": 42.8,
+          "tp": 43,
+          "fp": 21,
+          "fn": 94,
           "num_prs": 50
         },
-        "devin": {
-          "precision": 50.5,
+        "bugbot": {
+          "precision": 46.2,
+          "recall": 43.8,
+          "f1": 44.9,
+          "tp": 60,
+          "fp": 70,
+          "fn": 77,
+          "num_prs": 50
+        },
+        "kg": {
+          "precision": 46.9,
+          "recall": 16.8,
+          "f1": 24.7,
+          "tp": 23,
+          "fp": 26,
+          "fn": 114,
+          "num_prs": 50
+        },
+        "graphite": {
+          "precision": 75.0,
+          "recall": 8.8,
+          "f1": 15.7,
+          "tp": 12,
+          "fp": 4,
+          "fn": 125,
+          "num_prs": 50
+        },
+        "gemini": {
+          "precision": 29.8,
           "recall": 37.2,
-          "f1": 42.9,
+          "f1": 33.1,
           "tp": 51,
-          "fp": 50,
+          "fp": 120,
           "fn": 86,
+          "num_prs": 50
+        },
+        "augment": {
+          "precision": 47.0,
+          "recall": 62.8,
+          "f1": 53.8,
+          "tp": 86,
+          "fp": 97,
+          "fn": 51,
           "num_prs": 50
         },
         "qodo": {
@@ -4614,13 +6904,130 @@
           "fn": 77,
           "num_prs": 50
         },
-        "gemini": {
-          "precision": 29.8,
+        "copilot": {
+          "precision": 26.6,
+          "recall": 53.3,
+          "f1": 35.5,
+          "tp": 73,
+          "fp": 201,
+          "fn": 64,
+          "num_prs": 50
+        },
+        "mra-a": {
+          "precision": 78.6,
+          "recall": 40.7,
+          "f1": 53.7,
+          "tp": 55,
+          "fp": 15,
+          "fn": 80,
+          "num_prs": 49
+        },
+        "mra-nano": {
+          "precision": 56.4,
+          "recall": 16.1,
+          "f1": 25.0,
+          "tp": 22,
+          "fp": 17,
+          "fn": 115,
+          "num_prs": 50
+        },
+        "mra-b": {
+          "precision": 76.1,
           "recall": 37.2,
-          "f1": 33.1,
+          "f1": 50.0,
           "tp": 51,
-          "fp": 120,
+          "fp": 16,
           "fn": 86,
+          "num_prs": 50
+        },
+        "claude": {
+          "precision": 33.1,
+          "recall": 35.8,
+          "f1": 34.4,
+          "tp": 49,
+          "fp": 99,
+          "fn": 88,
+          "num_prs": 50
+        },
+        "greptile-v4": {
+          "precision": 31.6,
+          "recall": 56.9,
+          "f1": 40.6,
+          "tp": 78,
+          "fp": 169,
+          "fn": 59,
+          "num_prs": 50
+        },
+        "entelligence": {
+          "precision": 19.9,
+          "recall": 25.5,
+          "f1": 22.4,
+          "tp": 35,
+          "fp": 141,
+          "fn": 102,
+          "num_prs": 50
+        },
+        "sourcery": {
+          "precision": 26.2,
+          "recall": 54.7,
+          "f1": 35.5,
+          "tp": 75,
+          "fp": 211,
+          "fn": 62,
+          "num_prs": 50
+        },
+        "baz": {
+          "precision": 44.0,
+          "recall": 29.2,
+          "f1": 35.1,
+          "tp": 40,
+          "fp": 51,
+          "fn": 97,
+          "num_prs": 50
+        },
+        "devin": {
+          "precision": 50.5,
+          "recall": 37.2,
+          "f1": 42.9,
+          "tp": 51,
+          "fp": 50,
+          "fn": 86,
+          "num_prs": 50
+        },
+        "qodo-v2": {
+          "precision": 42.6,
+          "recall": 54.7,
+          "f1": 47.9,
+          "tp": 75,
+          "fp": 101,
+          "fn": 62,
+          "num_prs": 50
+        },
+        "cubic-dev": {
+          "precision": 20.5,
+          "recall": 76.6,
+          "f1": 32.4,
+          "tp": 105,
+          "fp": 406,
+          "fn": 32,
+          "num_prs": 50
+        },
+        "mesa": {
+          "precision": 21.0,
+          "recall": 48.2,
+          "f1": 29.2,
+          "tp": 66,
+          "fp": 249,
+          "fn": 71,
+          "num_prs": 50
+        },
+        "mra-ultra": {
+          "precision": 75.8,
+          "recall": 36.5,
+          "f1": 49.3,
+          "tp": 50,
+          "fp": 16,
+          "fn": 87,
           "num_prs": 50
         },
         "coderabbit": {
@@ -4641,51 +7048,6 @@
           "fn": 85,
           "num_prs": 50
         },
-        "graphite": {
-          "precision": 75.0,
-          "recall": 8.8,
-          "f1": 15.7,
-          "tp": 12,
-          "fp": 4,
-          "fn": 125,
-          "num_prs": 50
-        },
-        "bugbot": {
-          "precision": 46.2,
-          "recall": 43.8,
-          "f1": 44.9,
-          "tp": 60,
-          "fp": 70,
-          "fn": 77,
-          "num_prs": 50
-        },
-        "copilot": {
-          "precision": 26.6,
-          "recall": 53.3,
-          "f1": 35.5,
-          "tp": 73,
-          "fp": 201,
-          "fn": 64,
-          "num_prs": 50
-        },
-        "augment": {
-          "precision": 47.0,
-          "recall": 62.8,
-          "f1": 53.8,
-          "tp": 86,
-          "fp": 97,
-          "fn": 51,
-          "num_prs": 50
-        },
-        "baz": {
-          "precision": 44.0,
-          "recall": 29.2,
-          "f1": 35.1,
-          "tp": 40,
-          "fp": 51,
-          "fn": 97,
-          "num_prs": 50
-        },
         "greptile": {
           "precision": 38.4,
           "recall": 38.7,
@@ -4693,33 +7055,6 @@
           "tp": 53,
           "fp": 85,
           "fn": 84,
-          "num_prs": 50
-        },
-        "qodo-v2": {
-          "precision": 42.6,
-          "recall": 54.7,
-          "f1": 47.9,
-          "tp": 75,
-          "fp": 101,
-          "fn": 62,
-          "num_prs": 50
-        },
-        "claude": {
-          "precision": 33.1,
-          "recall": 35.8,
-          "f1": 34.4,
-          "tp": 49,
-          "fp": 99,
-          "fn": 88,
-          "num_prs": 50
-        },
-        "kg": {
-          "precision": 46.9,
-          "recall": 16.8,
-          "f1": 24.7,
-          "tp": 23,
-          "fp": 26,
-          "fn": 114,
           "num_prs": 50
         }
       }
@@ -9060,58 +11395,13 @@
         ]
       },
       "overall_metrics": {
-        "devin": {
-          "precision": 51.0,
-          "recall": 38.7,
-          "f1": 44.0,
-          "tp": 53,
-          "fp": 51,
-          "fn": 84,
-          "num_prs": 50
-        },
-        "qodo": {
-          "precision": 27.9,
-          "recall": 46.0,
-          "f1": 34.7,
-          "tp": 63,
-          "fp": 163,
-          "fn": 74,
-          "num_prs": 50
-        },
-        "gemini": {
-          "precision": 28.9,
-          "recall": 36.5,
-          "f1": 32.3,
-          "tp": 50,
-          "fp": 123,
-          "fn": 87,
-          "num_prs": 50
-        },
-        "coderabbit": {
-          "precision": 23.3,
-          "recall": 39.4,
-          "f1": 29.3,
-          "tp": 54,
-          "fp": 178,
-          "fn": 83,
-          "num_prs": 50
-        },
-        "propel": {
-          "precision": 42.4,
-          "recall": 36.5,
-          "f1": 39.2,
-          "tp": 50,
-          "fp": 68,
-          "fn": 87,
-          "num_prs": 50
-        },
-        "graphite": {
-          "precision": 75.0,
-          "recall": 8.8,
-          "f1": 15.7,
-          "tp": 12,
-          "fp": 4,
-          "fn": 125,
+        "baz": {
+          "precision": 44.1,
+          "recall": 29.9,
+          "f1": 35.7,
+          "tp": 41,
+          "fp": 52,
+          "fn": 96,
           "num_prs": 50
         },
         "bugbot": {
@@ -9123,40 +11413,22 @@
           "fn": 78,
           "num_prs": 50
         },
-        "copilot": {
-          "precision": 25.5,
-          "recall": 51.1,
-          "f1": 34.0,
-          "tp": 70,
-          "fp": 205,
-          "fn": 67,
+        "kg": {
+          "precision": 44.9,
+          "recall": 16.1,
+          "f1": 23.7,
+          "tp": 22,
+          "fp": 27,
+          "fn": 115,
           "num_prs": 50
         },
-        "augment": {
-          "precision": 43.7,
-          "recall": 63.5,
-          "f1": 51.8,
-          "tp": 87,
-          "fp": 112,
-          "fn": 50,
-          "num_prs": 50
-        },
-        "baz": {
-          "precision": 44.1,
-          "recall": 29.9,
-          "f1": 35.7,
-          "tp": 41,
-          "fp": 52,
-          "fn": 96,
-          "num_prs": 50
-        },
-        "greptile": {
-          "precision": 39.9,
-          "recall": 40.1,
-          "f1": 40.0,
-          "tp": 55,
-          "fp": 83,
-          "fn": 82,
+        "devin": {
+          "precision": 51.0,
+          "recall": 38.7,
+          "f1": 44.0,
+          "tp": 53,
+          "fp": 51,
+          "fn": 84,
           "num_prs": 50
         },
         "mra-nano": {
@@ -9177,13 +11449,76 @@
           "fn": 82,
           "num_prs": 50
         },
-        "kg": {
-          "precision": 44.9,
-          "recall": 16.1,
-          "f1": 23.7,
-          "tp": 22,
-          "fp": 27,
-          "fn": 115,
+        "gemini": {
+          "precision": 28.9,
+          "recall": 36.5,
+          "f1": 32.3,
+          "tp": 50,
+          "fp": 123,
+          "fn": 87,
+          "num_prs": 50
+        },
+        "augment": {
+          "precision": 43.7,
+          "recall": 63.5,
+          "f1": 51.8,
+          "tp": 87,
+          "fp": 112,
+          "fn": 50,
+          "num_prs": 50
+        },
+        "coderabbit": {
+          "precision": 23.3,
+          "recall": 39.4,
+          "f1": 29.3,
+          "tp": 54,
+          "fp": 178,
+          "fn": 83,
+          "num_prs": 50
+        },
+        "graphite": {
+          "precision": 75.0,
+          "recall": 8.8,
+          "f1": 15.7,
+          "tp": 12,
+          "fp": 4,
+          "fn": 125,
+          "num_prs": 50
+        },
+        "propel": {
+          "precision": 42.4,
+          "recall": 36.5,
+          "f1": 39.2,
+          "tp": 50,
+          "fp": 68,
+          "fn": 87,
+          "num_prs": 50
+        },
+        "greptile": {
+          "precision": 39.9,
+          "recall": 40.1,
+          "f1": 40.0,
+          "tp": 55,
+          "fp": 83,
+          "fn": 82,
+          "num_prs": 50
+        },
+        "qodo": {
+          "precision": 27.9,
+          "recall": 46.0,
+          "f1": 34.7,
+          "tp": 63,
+          "fp": 163,
+          "fn": 74,
+          "num_prs": 50
+        },
+        "copilot": {
+          "precision": 25.5,
+          "recall": 51.1,
+          "f1": 34.0,
+          "tp": 70,
+          "fp": 205,
+          "fn": 67,
           "num_prs": 50
         }
       }
@@ -16029,58 +18364,13 @@
         ]
       },
       "overall_metrics": {
-        "devin": {
-          "precision": 52.2,
-          "recall": 59.9,
-          "f1": 55.8,
-          "tp": 82,
-          "fp": 75,
-          "fn": 55,
-          "num_prs": 50
-        },
-        "sourcery": {
-          "precision": 35.9,
+        "mra-max": {
+          "precision": 92.9,
           "recall": 56.9,
-          "f1": 44.1,
+          "f1": 70.6,
           "tp": 78,
-          "fp": 139,
+          "fp": 6,
           "fn": 59,
-          "num_prs": 50
-        },
-        "augment": {
-          "precision": 31.0,
-          "recall": 76.6,
-          "f1": 44.1,
-          "tp": 105,
-          "fp": 234,
-          "fn": 32,
-          "num_prs": 50
-        },
-        "qodo-v2": {
-          "precision": 52.1,
-          "recall": 81.0,
-          "f1": 63.4,
-          "tp": 111,
-          "fp": 102,
-          "fn": 26,
-          "num_prs": 50
-        },
-        "entelligence": {
-          "precision": 46.7,
-          "recall": 30.7,
-          "f1": 37.0,
-          "tp": 42,
-          "fp": 48,
-          "fn": 95,
-          "num_prs": 50
-        },
-        "propel": {
-          "precision": 50.3,
-          "recall": 59.1,
-          "f1": 54.4,
-          "tp": 81,
-          "fp": 80,
-          "fn": 56,
           "num_prs": 50
         },
         "bugbot": {
@@ -16092,105 +18382,6 @@
           "fn": 44,
           "num_prs": 50
         },
-        "copilot": {
-          "precision": 28.3,
-          "recall": 65.7,
-          "f1": 39.6,
-          "tp": 90,
-          "fp": 228,
-          "fn": 47,
-          "num_prs": 50
-        },
-        "baz": {
-          "precision": 41.4,
-          "recall": 43.8,
-          "f1": 42.6,
-          "tp": 60,
-          "fp": 85,
-          "fn": 77,
-          "num_prs": 50
-        },
-        "cubic-dev": {
-          "precision": 29.1,
-          "recall": 78.8,
-          "f1": 42.5,
-          "tp": 108,
-          "fp": 263,
-          "fn": 29,
-          "num_prs": 50
-        },
-        "claude": {
-          "precision": 50.0,
-          "recall": 50.4,
-          "f1": 50.2,
-          "tp": 69,
-          "fp": 69,
-          "fn": 68,
-          "num_prs": 50
-        },
-        "qodo": {
-          "precision": 72.4,
-          "recall": 70.8,
-          "f1": 71.6,
-          "tp": 97,
-          "fp": 37,
-          "fn": 40,
-          "num_prs": 50
-        },
-        "gemini": {
-          "precision": 23.0,
-          "recall": 43.1,
-          "f1": 29.9,
-          "tp": 59,
-          "fp": 198,
-          "fn": 78,
-          "num_prs": 50
-        },
-        "mra-ultra": {
-          "precision": 88.5,
-          "recall": 50.4,
-          "f1": 64.2,
-          "tp": 69,
-          "fp": 9,
-          "fn": 68,
-          "num_prs": 50
-        },
-        "mra-nano": {
-          "precision": 80.9,
-          "recall": 27.7,
-          "f1": 41.3,
-          "tp": 38,
-          "fp": 9,
-          "fn": 99,
-          "num_prs": 50
-        },
-        "greptile": {
-          "precision": 40.2,
-          "recall": 71.5,
-          "f1": 51.4,
-          "tp": 98,
-          "fp": 146,
-          "fn": 39,
-          "num_prs": 50
-        },
-        "mesa": {
-          "precision": 25.7,
-          "recall": 56.2,
-          "f1": 35.2,
-          "tp": 77,
-          "fp": 223,
-          "fn": 60,
-          "num_prs": 50
-        },
-        "mra-a": {
-          "precision": 29.0,
-          "recall": 56.3,
-          "f1": 38.3,
-          "tp": 76,
-          "fp": 186,
-          "fn": 59,
-          "num_prs": 49
-        },
         "kg": {
           "precision": 33.0,
           "recall": 21.9,
@@ -16198,33 +18389,6 @@
           "tp": 30,
           "fp": 61,
           "fn": 107,
-          "num_prs": 50
-        },
-        "mra-max": {
-          "precision": 92.9,
-          "recall": 56.9,
-          "f1": 70.6,
-          "tp": 78,
-          "fp": 6,
-          "fn": 59,
-          "num_prs": 50
-        },
-        "greptile-v4": {
-          "precision": 43.1,
-          "recall": 89.1,
-          "f1": 58.1,
-          "tp": 122,
-          "fp": 161,
-          "fn": 15,
-          "num_prs": 50
-        },
-        "mra-b": {
-          "precision": 28.6,
-          "recall": 46.0,
-          "f1": 35.3,
-          "tp": 63,
-          "fp": 157,
-          "fn": 74,
           "num_prs": 50
         },
         "graphite": {
@@ -16236,6 +18400,159 @@
           "fn": 125,
           "num_prs": 50
         },
+        "gemini": {
+          "precision": 23.0,
+          "recall": 43.1,
+          "f1": 29.9,
+          "tp": 59,
+          "fp": 198,
+          "fn": 78,
+          "num_prs": 50
+        },
+        "augment": {
+          "precision": 31.0,
+          "recall": 76.6,
+          "f1": 44.1,
+          "tp": 105,
+          "fp": 234,
+          "fn": 32,
+          "num_prs": 50
+        },
+        "qodo": {
+          "precision": 72.4,
+          "recall": 70.8,
+          "f1": 71.6,
+          "tp": 97,
+          "fp": 37,
+          "fn": 40,
+          "num_prs": 50
+        },
+        "copilot": {
+          "precision": 28.3,
+          "recall": 65.7,
+          "f1": 39.6,
+          "tp": 90,
+          "fp": 228,
+          "fn": 47,
+          "num_prs": 50
+        },
+        "mra-a": {
+          "precision": 29.0,
+          "recall": 56.3,
+          "f1": 38.3,
+          "tp": 76,
+          "fp": 186,
+          "fn": 59,
+          "num_prs": 49
+        },
+        "mra-nano": {
+          "precision": 80.9,
+          "recall": 27.7,
+          "f1": 41.3,
+          "tp": 38,
+          "fp": 9,
+          "fn": 99,
+          "num_prs": 50
+        },
+        "mra-b": {
+          "precision": 28.6,
+          "recall": 46.0,
+          "f1": 35.3,
+          "tp": 63,
+          "fp": 157,
+          "fn": 74,
+          "num_prs": 50
+        },
+        "claude": {
+          "precision": 50.0,
+          "recall": 50.4,
+          "f1": 50.2,
+          "tp": 69,
+          "fp": 69,
+          "fn": 68,
+          "num_prs": 50
+        },
+        "greptile-v4": {
+          "precision": 43.1,
+          "recall": 89.1,
+          "f1": 58.1,
+          "tp": 122,
+          "fp": 161,
+          "fn": 15,
+          "num_prs": 50
+        },
+        "entelligence": {
+          "precision": 46.7,
+          "recall": 30.7,
+          "f1": 37.0,
+          "tp": 42,
+          "fp": 48,
+          "fn": 95,
+          "num_prs": 50
+        },
+        "sourcery": {
+          "precision": 35.9,
+          "recall": 56.9,
+          "f1": 44.1,
+          "tp": 78,
+          "fp": 139,
+          "fn": 59,
+          "num_prs": 50
+        },
+        "baz": {
+          "precision": 41.4,
+          "recall": 43.8,
+          "f1": 42.6,
+          "tp": 60,
+          "fp": 85,
+          "fn": 77,
+          "num_prs": 50
+        },
+        "devin": {
+          "precision": 52.2,
+          "recall": 59.9,
+          "f1": 55.8,
+          "tp": 82,
+          "fp": 75,
+          "fn": 55,
+          "num_prs": 50
+        },
+        "qodo-v2": {
+          "precision": 52.1,
+          "recall": 81.0,
+          "f1": 63.4,
+          "tp": 111,
+          "fp": 102,
+          "fn": 26,
+          "num_prs": 50
+        },
+        "cubic-dev": {
+          "precision": 29.1,
+          "recall": 78.8,
+          "f1": 42.5,
+          "tp": 108,
+          "fp": 263,
+          "fn": 29,
+          "num_prs": 50
+        },
+        "mesa": {
+          "precision": 25.7,
+          "recall": 56.2,
+          "f1": 35.2,
+          "tp": 77,
+          "fp": 223,
+          "fn": 60,
+          "num_prs": 50
+        },
+        "mra-ultra": {
+          "precision": 88.5,
+          "recall": 50.4,
+          "f1": 64.2,
+          "tp": 69,
+          "fp": 9,
+          "fn": 68,
+          "num_prs": 50
+        },
         "coderabbit": {
           "precision": 27.4,
           "recall": 64.2,
@@ -16243,6 +18560,24 @@
           "tp": 88,
           "fp": 233,
           "fn": 49,
+          "num_prs": 50
+        },
+        "propel": {
+          "precision": 50.3,
+          "recall": 59.1,
+          "f1": 54.4,
+          "tp": 81,
+          "fp": 80,
+          "fn": 56,
+          "num_prs": 50
+        },
+        "greptile": {
+          "precision": 40.2,
+          "recall": 71.5,
+          "f1": 51.4,
+          "tp": 98,
+          "fp": 146,
+          "fn": 39,
           "num_prs": 50
         }
       }
@@ -21345,67 +23680,13 @@
           "fn": 92,
           "num_prs": 50
         },
-        "devin": {
-          "precision": 41.8,
-          "recall": 37.2,
-          "f1": 39.4,
-          "tp": 51,
-          "fp": 71,
-          "fn": 86,
-          "num_prs": 50
-        },
-        "qodo": {
-          "precision": 23.4,
-          "recall": 42.3,
-          "f1": 30.1,
-          "tp": 58,
-          "fp": 190,
-          "fn": 79,
-          "num_prs": 50
-        },
-        "greptile-v4": {
-          "precision": 27.5,
-          "recall": 59.1,
-          "f1": 37.5,
-          "tp": 81,
-          "fp": 214,
-          "fn": 56,
-          "num_prs": 50
-        },
-        "gemini": {
-          "precision": 24.6,
-          "recall": 32.8,
-          "f1": 28.1,
-          "tp": 45,
-          "fp": 138,
-          "fn": 92,
-          "num_prs": 50
-        },
-        "coderabbit": {
-          "precision": 21.2,
-          "recall": 41.6,
-          "f1": 28.1,
-          "tp": 57,
-          "fp": 212,
-          "fn": 80,
-          "num_prs": 50
-        },
-        "propel": {
-          "precision": 38.9,
-          "recall": 37.2,
-          "f1": 38.1,
-          "tp": 51,
-          "fp": 80,
-          "fn": 86,
-          "num_prs": 50
-        },
-        "graphite": {
-          "precision": 66.7,
-          "recall": 8.8,
-          "f1": 15.5,
-          "tp": 12,
-          "fp": 6,
-          "fn": 125,
+        "baz": {
+          "precision": 34.6,
+          "recall": 27.0,
+          "f1": 30.3,
+          "tp": 37,
+          "fp": 70,
+          "fn": 100,
           "num_prs": 50
         },
         "bugbot": {
@@ -21417,40 +23698,22 @@
           "fn": 78,
           "num_prs": 50
         },
-        "copilot": {
-          "precision": 23.5,
-          "recall": 53.3,
-          "f1": 32.6,
-          "tp": 73,
-          "fp": 238,
-          "fn": 64,
+        "kg": {
+          "precision": 48.9,
+          "recall": 16.8,
+          "f1": 25.0,
+          "tp": 23,
+          "fp": 24,
+          "fn": 114,
           "num_prs": 50
         },
-        "augment": {
-          "precision": 37.3,
-          "recall": 59.1,
-          "f1": 45.8,
-          "tp": 81,
-          "fp": 136,
-          "fn": 56,
-          "num_prs": 50
-        },
-        "baz": {
-          "precision": 34.6,
-          "recall": 27.0,
-          "f1": 30.3,
-          "tp": 37,
-          "fp": 70,
-          "fn": 100,
-          "num_prs": 50
-        },
-        "greptile": {
-          "precision": 33.8,
-          "recall": 36.5,
-          "f1": 35.1,
-          "tp": 50,
-          "fp": 98,
-          "fn": 87,
+        "devin": {
+          "precision": 41.8,
+          "recall": 37.2,
+          "f1": 39.4,
+          "tp": 51,
+          "fp": 71,
+          "fn": 86,
           "num_prs": 50
         },
         "mra-nano": {
@@ -21462,15 +23725,6 @@
           "fn": 114,
           "num_prs": 50
         },
-        "qodo-v2": {
-          "precision": 34.4,
-          "recall": 55.5,
-          "f1": 42.5,
-          "tp": 76,
-          "fp": 145,
-          "fn": 61,
-          "num_prs": 50
-        },
         "claude": {
           "precision": 30.5,
           "recall": 37.2,
@@ -21480,33 +23734,100 @@
           "fn": 86,
           "num_prs": 50
         },
-        "kg": {
-          "precision": 48.9,
-          "recall": 16.8,
-          "f1": 25.0,
-          "tp": 23,
-          "fp": 24,
-          "fn": 114,
+        "qodo-v2": {
+          "precision": 34.4,
+          "recall": 55.5,
+          "f1": 42.5,
+          "tp": 76,
+          "fp": 145,
+          "fn": 61,
+          "num_prs": 50
+        },
+        "gemini": {
+          "precision": 24.6,
+          "recall": 32.8,
+          "f1": 28.1,
+          "tp": 45,
+          "fp": 138,
+          "fn": 92,
+          "num_prs": 50
+        },
+        "greptile-v4": {
+          "precision": 27.5,
+          "recall": 59.1,
+          "f1": 37.5,
+          "tp": 81,
+          "fp": 214,
+          "fn": 56,
+          "num_prs": 50
+        },
+        "augment": {
+          "precision": 37.3,
+          "recall": 59.1,
+          "f1": 45.8,
+          "tp": 81,
+          "fp": 136,
+          "fn": 56,
+          "num_prs": 50
+        },
+        "coderabbit": {
+          "precision": 21.2,
+          "recall": 41.6,
+          "f1": 28.1,
+          "tp": 57,
+          "fp": 212,
+          "fn": 80,
+          "num_prs": 50
+        },
+        "graphite": {
+          "precision": 66.7,
+          "recall": 8.8,
+          "f1": 15.5,
+          "tp": 12,
+          "fp": 6,
+          "fn": 125,
+          "num_prs": 50
+        },
+        "propel": {
+          "precision": 38.9,
+          "recall": 37.2,
+          "f1": 38.1,
+          "tp": 51,
+          "fp": 80,
+          "fn": 86,
+          "num_prs": 50
+        },
+        "greptile": {
+          "precision": 33.8,
+          "recall": 36.5,
+          "f1": 35.1,
+          "tp": 50,
+          "fp": 98,
+          "fn": 87,
+          "num_prs": 50
+        },
+        "qodo": {
+          "precision": 23.4,
+          "recall": 42.3,
+          "f1": 30.1,
+          "tp": 58,
+          "fp": 190,
+          "fn": 79,
+          "num_prs": 50
+        },
+        "copilot": {
+          "precision": 23.5,
+          "recall": 53.3,
+          "f1": 32.6,
+          "tp": 73,
+          "fp": 238,
+          "fn": 64,
           "num_prs": 50
         }
       }
     }
   },
   "predefined_filters": [
-    {
-      "id": "tool_mra-nano_language_python",
-      "label": "Best for Python (Precision)",
-      "filters": {
-        "language": [
-          "Python"
-        ]
-      },
-      "description": "Python codebases with dynamic typing.",
-      "best_model": "openai_gpt-4o-mini",
-      "best_tool": "mra-nano",
-      "best_score": 100.0,
-      "sort": "precision"
-    },
     {
       "id": "tool_kg_complexity_complex",
       "label": "Best for Complex Code (Precision)",
@@ -21522,7 +23843,7 @@
       "sort": "precision"
     },
     {
-      "id": "tool_graphite_language_python",
+      "id": "tool_mra-nano_language_python",
       "label": "Best for Python (Precision)",
       "filters": {
         "language": [
@@ -21530,7 +23851,21 @@
         ]
       },
       "description": "Python codebases with dynamic typing.",
-      "best_model": "anthropic_claude-opus-4-5-20251101",
+      "best_model": "openai_gpt-4o-mini",
+      "best_tool": "mra-nano",
+      "best_score": 100.0,
+      "sort": "precision"
+    },
+    {
+      "id": "tool_graphite_language_typescript",
+      "label": "Best for Typescript (Precision)",
+      "filters": {
+        "language": [
+          "TypeScript"
+        ]
+      },
+      "description": "TypeScript codebases with frontend patterns.",
+      "best_model": "openai_gpt-4o-mini",
       "best_tool": "graphite",
       "best_score": 100.0,
       "sort": "precision"
@@ -21544,7 +23879,7 @@
         ]
       },
       "description": "Cache and memoization.",
-      "best_model": "openai_gpt-4o-mini",
+      "best_model": "anthropic_claude-opus-4-5-20251101",
       "best_tool": "cubic-dev",
       "best_score": 100.0,
       "sort": "recall"
@@ -21573,6 +23908,20 @@
       "best_score": 89.1
     },
     {
+      "id": "tool_mesa_change_type_bug_fix",
+      "label": "Best for Bug Fixes (Recall)",
+      "filters": {
+        "change_type": [
+          "bug_fix"
+        ]
+      },
+      "description": "Bug fixes and issue resolution",
+      "best_model": "anthropic_claude-opus-4-5-20251101",
+      "best_tool": "mesa",
+      "best_score": 88.2,
+      "sort": "recall"
+    },
+    {
       "id": "risk_critical",
       "label": "Best for Critical Risk",
       "filters": {
@@ -21584,6 +23933,39 @@
       "best_model": "openai_gpt-4o-mini",
       "best_tool": "qodo",
       "best_score": 87.8
+    },
+    {
+      "id": "tool_sourcery_language_typescript_concern_correctness",
+      "label": "Typescript + Correctness (Recall)",
+      "filters": {
+        "language": [
+          "TypeScript"
+        ],
+        "concern": [
+          "correctness"
+        ]
+      },
+      "description": "TypeScript codebases with frontend patterns. Logical correctness and expected behavior",
+      "best_model": "anthropic_claude-opus-4-5-20251101",
+      "best_tool": "sourcery",
+      "best_score": 83.3,
+      "sort": "recall"
+    },
+    {
+      "id": "tool_mra-b_language_typescript_change_type_feature",
+      "label": "Typescript + Features",
+      "filters": {
+        "language": [
+          "TypeScript"
+        ],
+        "change_type": [
+          "feature"
+        ]
+      },
+      "description": "TypeScript codebases with frontend patterns. New feature implementation",
+      "best_model": "anthropic_claude-opus-4-5-20251101",
+      "best_tool": "mra-b",
+      "best_score": 78.8
     },
     {
       "id": "change_type_performance",
@@ -21631,20 +24013,20 @@
       "best_score": 74.6
     },
     {
-      "id": "tool_devin_language_ruby_pr_size_medium",
-      "label": "Ruby + Medium PRs",
+      "id": "python_medium",
+      "label": "Best for Medium Python PRs",
       "filters": {
         "language": [
-          "Ruby"
+          "Python"
         ],
         "pr_size": [
           "medium"
         ]
       },
-      "description": "Ruby codebases with Rails patterns. Medium PRs with 3-5 files, typical feature development",
+      "description": "Python codebases with dynamic typing. Medium PRs with 3-5 files, typical feature development",
       "best_model": "anthropic_claude-opus-4-5-20251101",
-      "best_tool": "devin",
-      "best_score": 66.7
+      "best_tool": "mra-a",
+      "best_score": 69.2
     },
     {
       "id": "tool_bugbot_domain_ui",
@@ -21657,6 +24039,22 @@
       "description": "User interface and frontend.",
       "best_model": "anthropic_claude-opus-4-5-20251101",
       "best_tool": "bugbot",
+      "best_score": 66.7
+    },
+    {
+      "id": "tool_devin_domain_scheduling_complexity_moderate",
+      "label": "Scheduling + Moderate Code",
+      "filters": {
+        "domain": [
+          "scheduling"
+        ],
+        "complexity": [
+          "moderate"
+        ]
+      },
+      "description": "Task scheduling. Some abstraction.",
+      "best_model": "anthropic_claude-sonnet-4-5-20250929",
+      "best_tool": "devin",
       "best_score": 66.7
     },
     {
@@ -22197,22 +24595,6 @@
       "description": "Python codebases with dynamic typing.",
       "best_model": "openai_gpt-4o-mini",
       "best_tool": "qodo",
-      "best_score": 66.7
-    },
-    {
-      "id": "python_medium",
-      "label": "Best for Medium Python PRs",
-      "filters": {
-        "language": [
-          "Python"
-        ],
-        "pr_size": [
-          "medium"
-        ]
-      },
-      "description": "Python codebases with dynamic typing. Medium PRs with 3-5 files, typical feature development",
-      "best_model": "openai_gpt-4o-mini",
-      "best_tool": "mra-ultra",
       "best_score": 66.7
     },
     {
