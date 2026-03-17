@@ -365,6 +365,730 @@
         "line": null,
         "source": "extracted"
       }
+    ],
+    "mra-ultra": [
+      {
+        "text": "Contradictory characterization of sanitization enforcement boundary: one finding claims sanitization is build-time only and bypassable at runtime, while another shows sanitizer is invoked during Freemarker request-time rendering, requiring investigation to determine actual enforcement",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "HTML is unescaped after sanitization (e.g., via StringEscapeUtils.unescapeHtml4 or fixURLs) without re-sanitizing, potentially reintroducing unsafe tags/attributes into final output",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "normalizeValue uses regex value.replaceAll(\"CLAIM\\\\.<[A-Z]*>\", \"\") that does not match placeholders with spaces like \"CLAIM.<NAME >\", so placeholders may not be stripped and can cause false positives in translation HTML checks",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "VerifyMessageProperties.santizeAnchors logic is brittle: it mutates the translated value while iterating and assumes anchor order alignment, which can remove the wrong substring or produce misleading/missed errors when anchors are reordered or repeated",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "VerifyMessageProperties.santizeAnchors relies on exact string equality of anchor tags (including attributes like href), which can flag legitimate translation differences or miss problematic ones due to overly strict matching",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "KeycloakSanitizerMethod HREF_PATTERN only matches double-quoted href attributes, ignoring single-quoted hrefs and potentially skipping URL post-processing (fixURLs) for those anchors",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "mra-a": [
+      {
+        "text": "Calling StringEscapeUtils.unescapeHtml4 on the OWASP sanitizer output reverts entity-encoding and can reintroduce unsafe raw HTML tags/markup",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "normalizeValue unescapes HTML entities before sanitization, making sanitization results unreliable and potentially allowing disallowed content to be reintroduced",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Duplicate-key detection treats comment lines with leading whitespace (e.g., \"  # comment\") as keys because it checks startsWith(\"#\") on the untrimmed line",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Duplicate-key detection fails to treat whitespace-only lines as blank because it uses line.isEmpty() without trimming, leading to incorrect parsing and false duplicate-key results",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "mra-b": [
+      {
+        "text": "verifySafeHtml() catches IOException when opening FileInputStream(s) and throws unchecked RuntimeException instead of propagating/using MojoExecutionException, causing inconsistent error semantics for callers of VerifyMessageProperties.verify()",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Calling unescapeHtml4() after OWASP sanitization can reintroduce literal HTML tags and defeat the intended HTML sanitization/safety check",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "entelligence": [
+      {
+        "text": "`error-invalid-multivalued-size` message was changed from the bundle\u2019s established `{{0}}` placeholder syntax to ICU/MessageFormat `{0}`, breaking the existing interpolation mechanism",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Because of the placeholder syntax change, the UI will render raw placeholders (e.g., `{0}`) instead of interpolated values",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Pluralization was implemented using ICU/MessageFormat `choice` syntax (e.g., `{2,choice,...}`) instead of the project\u2019s supported pluralization approach using separate `_one`/`_other` keys, making it inconsistent and likely unsupported",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "sourcery": [
+      {
+        "text": "Method name `santizeAnchors` is misspelled; should be renamed to `sanitizeAnchors`",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Anchor-mismatch error message in `santizeAnchors`/`sanitizeAnchors` lacks `key` and `file` context, making debugging harder and inconsistent with other HTML error messages",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "`verifySafeHtml()` throws a raw `RuntimeException` on IO failures, causing inconsistent and less-informative error reporting compared to `verify()` which uses `MojoExecutionException`",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "`verifySafeHtml()` should either declare/throw `MojoExecutionException` (or another checked exception) and wrap `IOException`, or callers should catch and wrap `IOException` so IO errors are reported uniformly",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Potential missing import for `org.apache.maven.plugin.MojoExecutionException` after changing `verifySafeHtml()` to throw it",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Callers of `verifySafeHtml()` may need to be updated to declare/handle `MojoExecutionException` to match `verify()` invocation style",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "`verifySafeHtml()` uses `file` in `new FileInputStream(file)`; if `file` is not a field in the class, the reference needs to be corrected (parameter/local variable)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Placeholder comment in `verifySafeHtml()` should be removed or replaced with the actual safe HTML verification logic",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Missing positive test ensuring valid HTML present in the English source (e.g., `<strong>`) is accepted and does not trigger an \"Illegal HTML\" error",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Missing test fixture resources for the valid-HTML acceptance test (e.g., `validHtml_en.properties` and corresponding translation file such as `validHtml_de.properties` with allowed HTML)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Missing test covering keys that exist only in the translated bundle (no English counterpart) where HTML should be flagged as illegal (covers `MissingResourceException`/fallback path in `getEnglishValue`)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Missing test fixture resource for translation-only key HTML validation (e.g., `illegalHtmlTagOnlyInTranslation_de.properties` with an HTML-containing key absent from the English bundle)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Missing positive test ensuring identical valid `<a>` anchor tags in English and translation are accepted (no anchor-related errors), to fully exercise `sanitizeAnchors`",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Missing test fixture resources for valid-anchor acceptance (e.g., `validAnchors_en.properties` and `validAnchors_de.properties` with matching `<a href=\"...\">...</a>` tags)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "PolicyFactory and Pattern instances (`POLICY_SOME_HTML`, `POLICY_NO_HTML`, `HTML_TAGS`, `ANCHOR_PATTERN`) are not `static final`, leading to unnecessary per-instance allocations and not clearly expressing immutability",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "cubic-dev": [
+      {
+        "text": "Italian text was mistakenly placed in the Lithuanian login translation file (themes/.../login/messages/messages_lt.properties), so `loginTotpStep1` displays Italian instead of Lithuanian",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "`start + end` can exceed the shorter string length in VerifyMessageProperties, leading to `StringIndexOutOfBoundsException` in `substring` calls; `end` needs clamping/guarding after the loops",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "In account-ui English messages, `error-invalid-multivalued-size` uses `{0}` and `{2,choice,...}` formatting inconsistent with the file\u2019s `{{0}}` i18next interpolation, so placeholders/pluralization may render literally",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Italian text was mistakenly placed in the Lithuanian account translation file (themes/.../account/messages/messages_lt.properties), so `totpStep1` displays Italian instead of Lithuanian",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Traditional Chinese characters were introduced into the Simplified Chinese locale file (messages_zh_CN.properties) for `totpStep1`, making the locale inconsistent",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Danish HTML email template has a stray leading `n` before `Hvis` (`nHvis`), likely from a `\\n` artifact, which will render as a typo",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Turkish login messages contain a typo: `Anahatar\u0131n\u0131z\u0131` should be `Anahtar\u0131n\u0131z\u0131` in `webauthn-error-registration`",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Lithuanian email HTML message contains a typo `nJei` (leading `n`), likely from a `\\n` artifact, which will render literally in the email",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Lithuanian email HTML message starts with truncated word `\u017eas`; it should be `Ka\u017ekas` (and plaintext variant also contains a related typo `Ka\u017eas`)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "In VerifyMessageProperties, `POLICY_SOME_HTML`, `POLICY_NO_HTML`, and `HTML_TAGS` are instance fields named like constants; they should be `private static final` to follow conventions and avoid per-instance recreation",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Test resource illegalHtmlTag_en.properties has malformed closing tag `</div` missing `>`, so it should be `</div>` to match the test intent",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Admin-ui English messages switched `error-invalid-multivalued-size` to `{0}`/`{2,choice,...}` ICU/ChoiceFormat style, but admin UI uses i18next `{{...}}` interpolation without ICU support, so placeholders may render literally",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Test resource noHtml_en.properties is missing a trailing newline at end of file",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Test resource changedAnchor_en.properties is missing a trailing newline at end of file",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Test resource noHtml_de.properties is missing a trailing newline at end of file",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Test resource changedAnchor_de.properties is missing a trailing newline at end of file",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "misc/theme-verifier/pom.xml dependency `owasp-java-html-sanitizer` lacks an explicit `<scope>compile</scope>` (inconsistent with nearby dependencies that specify it)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Method name typo in VerifyMessageProperties: `santizeAnchors` should be `sanitizeAnchors`",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "mesa": [
+      {
+        "text": "POLICY_SOME_HTML intends to allow anchor (<a>) tags, but 'a' is missing from the sanitizer allowElements list, so anchors are stripped before custom sanitizeAnchors() runs",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Anchor validation logic runs after sanitization, making the validation ineffective because anchors have already been removed",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Anchor sanitization/validation uses replaceFirst(), which can produce incorrect results/false positives when multiple/repeated anchors are present",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Anchor sanitization/validation does not validate anchor attributes (e.g., href/target and allowed URL schemes), leaving XSS/phishing risk in links",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Regex pattern `_[a-zA-Z-_]*\\.properties` incorrectly matches English files like `_en.properties`, potentially producing names like `_en_en.properties`",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "HTML_TAGS regex `<[a-z]+[^>]*>` only matches lowercase tag names, allowing uppercase/mixed-case tags (e.g., <DIV>, <Script>) to bypass detection",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Unescape and HTML comment removal are applied unconditionally to all values, potentially masking malicious translator-supplied HTML comments or pre-escaped entities; should be justified or made conditional on the English source",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Lithuanian (lt) localization file contains Italian text (\"Installa una delle seguenti applicazioni sul tuo cellulare:\"), which should be translated to Lithuanian (account messages_lt.properties)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Lithuanian (lt) localization file contains Italian text (\"Installa una delle seguenti applicazioni sul tuo cellulare:\"), which should be translated to Lithuanian (login messages_lt.properties)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Theme/message verification only covers repository-managed translations built via Maven; custom themes/message bundles loaded at runtime bypass verification",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "HTML detection relies on fragile/bypassable regex matching, and anchor comparison logic using regex may miss edge cases or malformed HTML variants",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Enforcement is build-time only with no runtime safeguard for operator-provided/custom message bundles, leaving a gap if bundles are loaded at deployment/runtime",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "codeant": [
+      {
+        "text": "verifySafeHtml throws RuntimeException on IO errors instead of using/propagating MojoExecutionException like the rest of the Maven plugin",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "POLICY_SOME_HTML and POLICY_NO_HTML are non-static/non-final and not declared private static final despite being constant shared policies",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "English resource file path is derived via brittle string/regex replacements on absolute paths, which can fail or point to the wrong file in different layouts",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "No defensive check/clear error when the derived English file does not exist before attempting to open it",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Properties file encoding expectations are unclear; PropertyResourceBundle(InputStream) assumes ISO-8859-1 and code may break if files are encoded differently without documentation",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Method name typo: santizeAnchors should be sanitizeAnchors",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "santizeAnchors should be marked private (visibility/style issue)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Anchor matching logic relies on parallel matcher.find() ordering and can mismatch when counts/order differ, making it fragile",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Anchor matching logic mutates the value string via replaceFirst while iterating with a matcher created from the original string, risking confusing/incorrect behavior",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "HTML tag detection regex HTML_TAGS only matches lowercase opening tags and misses closing tags, leading to incorrect HTML detection",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "HTML tag detection should be case-insensitive and handle closing tags (e.g., </div>)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "HTML detection/normalization may not correctly handle numeric tags like <1> used by messageformat; ensure all cases are covered",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "normalizeValue contains hard-coded special-case key handling via string replacements, which is brittle and under-documented",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Sanitized output post-processing (unescape entities and removing '<!-- -->') is brittle and may cause false positives/negatives without better documentation/tests or sanitizer configuration changes",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Difference-reporting substring logic can compute invalid indices and throw StringIndexOutOfBoundsException without guards",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Tests lack coverage for edge cases such as uppercase HTML tags, multiple anchors, and missing English base properties files",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Anchor regex does not match uppercase/mixed-case <A ...> tags because it is not case-insensitive",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Need to ensure the plugin consuming the accumulated messages list handles/report messages appropriately (potential reporting/UX concern)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Added dependencies require license compatibility verification and commons-text version should be kept current due to past security advisories",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "kodus": [
+      {
+        "text": "Slovak/Swedish/Norwegian TOTP setup instruction strings refer to \"the following applications\" but no list of applications is provided, resulting in incomplete and confusing 2FA setup instructions",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Lithuanian (_lt) locale properties files contain Italian text for TOTP setup instruction keys (e.g., totpStep1/loginTotpStep1), causing Lithuanian users to see the wrong language",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "The santizeAnchors method is inefficient because it calls replaceFirst() repeatedly in a loop, leading to quadratic-time behavior for strings with multiple anchor tags",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "On anchor validation failure, santizeAnchors returns a partially modified string instead of the original unmodified value, which can break subsequent sanitization/validation",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Using MessageFormat choice/pluralization with a potentially null maximum value ({2}) in error-invalid-multivalued-size can throw IllegalArgumentException and cause an internal server error instead of a validation message",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "claude-code": [
+      {
+        "text": "Security-critical design decisions in the new HTML sanitization logic (allowed tag list and anchor validation approach) need human review to ensure they are safe and correct",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "normalizeValue contains key-specific special cases (e.g., templateHelp, optimizeLookupHelp, linkExpirationFormatter, error-invalid-multivalued-size, email RTL styles) that may bypass parts of sanitization and could let unsafe content through if incomplete/incorrect",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "New dependencies are added with hardcoded versions rather than being managed via a BOM, increasing dependency management and security update risk",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Code style: POLICY_SOME_HTML, POLICY_NO_HTML, and HTML_TAGS are named like constants but are not declared static final",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Typo in method name: santizeAnchors should be sanitizeAnchors",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "santizeAnchors mutates the value string via replaceFirst while iterating regex matches, which may cause subtle edge cases (e.g., with repeated identical anchors)",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "linearb": [
+      {
+        "text": "In sanitizeAnchors, the Matcher is created on the original string but the code modifies the string in-place (e.g., via replaceFirst) inside the loop, leaving the Matcher operating on a stale string reference and potentially causing incorrect matches or StringIndexOutOfBoundsException",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "verifySafeHtml throws an unchecked RuntimeException for IO errors even though the calling verify() method declares MojoExecutionException, bypassing the intended checked exception contract and potentially losing error context",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "POLICY_SOME_HTML and POLICY_NO_HTML are instance fields even though their configuration is immutable and shared; they should be private static final PolicyFactory constants to avoid recreating policy objects per instance and wasting CPU/memory",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "kodus-v2": [
+      {
+        "text": "Lithuanian login translation file (themes/src/main/resources-community/theme/base/login/messages/messages_lt.properties) has Italian text for key loginTotpStep1 instead of Lithuanian, causing incorrect TOTP step 1 instruction",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Lithuanian account translation file (themes/src/main/resources-community/theme/base/account/messages/messages_lt.properties) has Italian text for key totpStep1 instead of Lithuanian, causing incorrect TOTP step 1 instruction",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "verifySafeHtml() throws a RuntimeException that is not caught by the caller's try/catch(IOException), allowing it to propagate and crash the Maven build instead of being reported as a validation message",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "When the derived English reference properties file does not exist, FileInputStream throws FileNotFoundException which is handled in a way that results in a RuntimeException rather than adding an error to the messages list and returning gracefully",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "qodo-v2-2": [
+      {
+        "text": "The 'error-invalid-multivalued-size' message in account-ui was changed to Java MessageFormat/ChoiceFormat syntax ({0,choice,...}) even though account-ui uses i18next with {{...}} interpolation, so i18next will not interpolate/pluralize it and the UI will display raw placeholders.",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "The formatting of 'error-invalid-multivalued-size' is inconsistent with other keys in the same message bundle that use i18next-style {{...}} interpolation.",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "qodo-v22": [
+      {
+        "text": "`error-invalid-multivalued-size` message in JS Admin UI theme uses Java MessageFormat/choice placeholders (`{0}`, `{2,choice,...}`) but React UI expects i18next numeric interpolation (`{{0}}`, `{{1}}`, ...), causing placeholders to render literally",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Lithuanian locale keys `totpStep1` and `loginTotpStep1` were replaced with an Italian sentence, showing wrong-language text in account and login flows for Lithuanian users",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "In `messages_zh_CN.properties`, `totpStep1` uses Traditional Chinese wording/characters (e.g., `\u624b\u6a5f`, `\u61c9\u7528\u7a0b\u5f0f`) inconsistent with zh_CN Simplified Chinese, resulting in mixed-script output",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "qodo-extended": [
+      {
+        "text": "VerifyMessageProperties.santizeAnchors() mutates the input string while iterating with a Matcher created from the original string, causing anchor tags to be skipped or inconsistently removed/validated (false \u201cIllegal HTML\u201d failures or missed mismatched anchors).",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Lithuanian locale files (login and account) have totpStep1/loginTotpStep1 translations replaced with Italian text, so Lithuanian users see Italian instructions during TOTP setup.",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "messages_zh_CN.properties (Simplified Chinese) uses Traditional Chinese characters for the totpStep1 translation, making the zh_CN locale text incorrect/inconsistent.",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "verifySafeHtml() computes start/end trim indices that can overlap on short sanitized strings, leading to StringIndexOutOfBoundsException in substring(start, sanitized.length() - end).",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "verifySafeHtml() wraps IOExceptions in RuntimeException, but verify() only catches IOException, so failures bypass MojoExecutionException handling and crash with an uncaught RuntimeException/stack trace.",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "English reference file path construction uses replaceAll with a broad locale-suffix regex, which can replace multiple matches in the absolute path and corrupt the constructed englishFile path (should be anchored/replaceFirst).",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "cubic-v2": [
+      {
+        "text": "messages_lt.properties contains an Italian string (\"Installa una delle seguenti applicazioni sul tuo cellulare\") replacing the expected Lithuanian translation for totpStep1",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Admin UI message error-invalid-multivalued-size was changed to Java MessageFormat placeholders ({0}, {2,choice,...}) even though this UI uses plain i18next, so placeholders will render unresolved in the UI",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Theme verifier anchor-tag check does not fail when a translation omits required <a> tags from the source string, allowing link-bearing messages to lose links while still passing verification",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
+    ],
+    "qodo-extended-summary": [
+      {
+        "text": "VerifyMessageProperties.verifySafeHtml() wraps IOExceptions in RuntimeException, allowing unchecked exceptions to escape verify() and crash the Maven plugin instead of reporting via MojoExecutionException/messages list",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Lithuanian locale files (login and account) have totpStep1/loginTotpStep1 replaced with Italian text, causing Lithuanian users to see incorrect language",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "Simplified Chinese locale file messages_zh_CN.properties has totpStep1 written in Traditional Chinese characters, making the zh_CN translation inconsistent/incorrect",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      },
+      {
+        "text": "In verifySafeHtml(), the prefix/suffix trimming logic can let start and end overlap so substring(start, length - end) throws StringIndexOutOfBoundsException and crashes the verifier",
+        "path": null,
+        "line": null,
+        "source": "extracted"
+      }
     ]
   },
   "https://github.com/keycloak/keycloak/pull/37634": {
