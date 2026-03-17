@@ -27,6 +27,10 @@ TOOL_DISPLAY_NAMES = {
     "baz": "Baz",
     "greptile": "Greptile",
     "kg": "KG",
+    "entelligence": "Entelligence",
+    "cubic-dev": "Cubic",
+    "sourcery": "Sourcery",
+    "mesa": "Mesa",
 }
 
 TOOL_COLORS = {
@@ -42,6 +46,10 @@ TOOL_COLORS = {
     "baz": "#f97316",
     "greptile": "#22c55e",
     "kg": "#a855f7",
+    "entelligence": "#0ea5e9",
+    "cubic-dev": "#d946ef",
+    "sourcery": "#84cc16",
+    "mesa": "#f43f5e",
 }
 
 

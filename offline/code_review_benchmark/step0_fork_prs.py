@@ -69,13 +69,26 @@ class GitHubPRForker:
         return self._request("GET", f"/repos/{self.org}/{repo_name}").status_code == 200
 
     def create_repo(self, repo_name: str):
+        # Create as private initially — public repos have mandatory push protection
+        # enforced at the platform level that can't be disabled via API. We make
+        # it public after pushing.
         response = self._request(
             "POST",
             f"/orgs/{self.org}/repos",
-            json={"name": repo_name, "private": False, "auto_init": False},
+            json={"name": repo_name, "private": True, "auto_init": False},
         )
         if response.status_code != 201:
             raise Exception(f"Failed to create repo: {response.json().get('message')}")
+
+    def make_repo_public(self, repo_name: str):
+        """Make repo public after pushing — avoids push protection on public repos."""
+        response = self._request(
+            "PATCH",
+            f"/repos/{self.org}/{repo_name}",
+            json={"private": False},
+        )
+        if response.status_code not in (200, 204):
+            print(f"Warning: Could not make repo public: {response.json().get('message')}")
 
     def disable_actions(self, repo_name: str):
         """Disable GitHub Actions for the repository."""
@@ -86,6 +99,20 @@ class GitHubPRForker:
         )
         if response.status_code not in (200, 204):
             print(f"Warning: Could not disable actions: {response.json().get('message')}")
+
+    def disable_push_protection(self, repo_name: str):
+        """Disable secret scanning push protection to allow pushing test fixtures with token-like strings."""
+        response = self._request(
+            "PATCH",
+            f"/repos/{self.org}/{repo_name}",
+            json={
+                "security_and_analysis": {
+                    "secret_scanning_push_protection": {"status": "disabled"}
+                }
+            },
+        )
+        if response.status_code not in (200, 204):
+            print(f"Warning: Could not disable push protection: {response.json().get('message')}")
 
     def create_pull_request(
         self, repo: str, title: str, body: str, head: str, base: str
@@ -186,6 +213,10 @@ class GitHubPRForker:
             result = self.run_git(tmpdir, "push", "target", pr_branch_name)
             if result.returncode != 0:
                 raise Exception(f"Push PR branch failed:\nstdout: {result.stdout}\nstderr: {result.stderr}")
+
+        # Make repo public now that all pushes are done
+        print("Making repository public...")
+        self.make_repo_public(new_repo_name)
 
         # Create PR
         print("Creating PR...")
