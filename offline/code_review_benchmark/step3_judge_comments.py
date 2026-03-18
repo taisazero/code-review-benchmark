@@ -212,10 +212,30 @@ def get_candidates(review: dict, all_candidates: dict, golden_url: str) -> list[
     return [c["body"] for c in comments if c.get("body")]
 
 
+def _build_sibling_map(
+    candidates: list[str],
+    groups: list[list[int]] | None,
+) -> dict[str, set[str]]:
+    """
+    Build a mapping from each candidate text to its duplicate siblings.
+    If no groups are provided (no dedup), every candidate maps to an empty set.
+    """
+    if not groups:
+        return {}
+    sibling_map: dict[str, set[str]] = {}
+    for group in groups:
+        group_texts = {candidates[i] for i in group if i < len(candidates)}
+        for i in group:
+            if i < len(candidates):
+                sibling_map[candidates[i]] = group_texts - {candidates[i]}
+    return sibling_map
+
+
 async def evaluate_review(
     judge: LLMJudge,
     golden_comments: list[dict],
     candidates: list[str],
+    dedup_groups: list[list[int]] | None = None,
 ) -> dict:
     """Evaluate candidates against golden comments. Returns precision and recall metrics."""
 
@@ -274,6 +294,8 @@ async def evaluate_review(
         for gc in golden_comments
     }
     candidate_matched = dict.fromkeys(candidates, False)
+    # Pre-build sibling lookup so matched candidates propagate to duplicates
+    sibling_map = _build_sibling_map(candidates, dedup_groups)
     errors = []
 
     for i, result in enumerate(results):
@@ -294,6 +316,9 @@ async def evaluate_review(
             golden_matched[golden]["matched_candidate"] = candidate
             golden_matched[golden]["reasoning"] = result.get("reasoning")
             candidate_matched[candidate] = True
+            # Propagate to duplicate siblings so they aren't counted as FPs
+            for sibling in sibling_map.get(candidate, set()):
+                candidate_matched[sibling] = True
 
     # Calculate metrics
     true_positives = []
@@ -353,6 +378,17 @@ async def main():
     parser.add_argument("--limit", type=int, help="Limit number of evaluations")
     parser.add_argument("--force", action="store_true", help="Re-evaluate even if already done")
     parser.add_argument("--structured", action="store_true", help="Use structured output (json_schema response_format)")
+    parser.add_argument(
+        "--dedup-groups",
+        metavar="FILE",
+        help="Path to dedup_groups_strict.json (or loose) from step2_5. "
+             "Duplicate candidates in the same group will not be counted as FPs.",
+    )
+    parser.add_argument(
+        "--evaluations-file",
+        metavar="FILE",
+        help="Override the default evaluations.json output path (useful for comparison runs)",
+    )
     args = parser.parse_args()
 
     load_dotenv()
@@ -369,7 +405,7 @@ async def main():
     # Load model-specific candidates and evaluations
     model_dir = get_model_dir()
     candidates_file = model_dir / "candidates.json"
-    evaluations_file = model_dir / "evaluations.json"
+    evaluations_file = Path(args.evaluations_file) if args.evaluations_file else model_dir / "evaluations.json"
 
     print(f"Model dir: {model_dir}")
 
@@ -379,6 +415,17 @@ async def main():
         with open(candidates_file) as f:
             all_candidates = json.load(f)
         print(f"Loaded candidates from {candidates_file}")
+
+    # Load dedup groups if provided
+    all_dedup_groups: dict = {}
+    if args.dedup_groups:
+        dedup_path = Path(args.dedup_groups)
+        if not dedup_path.exists():
+            print(f"Error: dedup groups file not found: {dedup_path}")
+            return
+        with open(dedup_path) as f:
+            all_dedup_groups = json.load(f)
+        print(f"Loaded dedup groups from {dedup_path}")
 
     # Load state
     state = EvaluationState.load(evaluations_file)
@@ -427,10 +474,14 @@ async def main():
             pbar.set_postfix(tool=tool, eval=evaluated, skip=skipped, timeout=timed_out)
 
             candidates = get_candidates(review, all_candidates, golden_url)
+            dedup_groups = (
+                all_dedup_groups.get(golden_url, {}).get(tool)
+                if all_dedup_groups else None
+            )
 
             try:
                 result = await asyncio.wait_for(
-                    evaluate_review(judge, golden_comments, candidates),
+                    evaluate_review(judge, golden_comments, candidates, dedup_groups),
                     timeout=REVIEW_TIMEOUT,
                 )
             except TimeoutError:
