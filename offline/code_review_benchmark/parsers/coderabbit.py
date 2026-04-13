@@ -293,6 +293,21 @@ def parse_status_comment(body: str) -> dict[str, list[dict]]:
 class CodeRabbitParser(BaseParser):
     """Parses CodeRabbit structured comments into categorized sections."""
 
+    def default_sections(self) -> dict[str, bool]:
+        return {
+            "inline": True,
+            "actionable_summary": True,
+            "outside_diff": True,
+            "nitpick": False,
+            "walkthrough": False,
+            "pre_merge_checks": False,
+            "finishing_touches": False,
+            "review_details": False,
+            "additional_comments": False,
+            "additional_context": False,
+            "unknown": False,
+        }
+
     def parse(self, review_comments: list[dict]) -> ParsedReview:
         sections: dict[str, list[ParsedComment]] = {}
 

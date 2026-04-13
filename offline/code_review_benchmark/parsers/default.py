@@ -10,6 +10,9 @@ from code_review_benchmark.parsers.base import ParsedReview
 class DefaultParser(BaseParser):
     """Passes all comments through as a single 'raw' section."""
 
+    def default_sections(self) -> dict[str, bool]:
+        return {"raw": True}
+
     def parse(self, review_comments: list[dict]) -> ParsedReview:
         comments = [
             ParsedComment(

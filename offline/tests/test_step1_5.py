@@ -5,36 +5,56 @@ from __future__ import annotations
 import json
 
 from code_review_benchmark import step1_5_parse_reviews as step1_5
+from code_review_benchmark.parsers import get_parser
 
 
-def test_default_sections():
-    assert step1_5.DEFAULT_SECTIONS["inline"] is True
-    assert step1_5.DEFAULT_SECTIONS["actionable_summary"] is True
-    assert step1_5.DEFAULT_SECTIONS["outside_diff"] is True
-    assert step1_5.DEFAULT_SECTIONS["nitpick"] is False
-    assert step1_5.DEFAULT_SECTIONS["walkthrough"] is False
+# Helpers ----------------------------------------------------------------
+
+def _coderabbit_defaults() -> dict[str, bool]:
+    return get_parser("coderabbit").default_sections()
+
+
+# Tests ------------------------------------------------------------------
+
+def test_parser_declares_default_sections():
+    """Each parser must declare its own default sections."""
+    defaults = _coderabbit_defaults()
+    assert defaults["inline"] is True
+    assert defaults["actionable_summary"] is True
+    assert defaults["outside_diff"] is True
+    assert defaults["nitpick"] is False
+    assert defaults["walkthrough"] is False
+
+
+def test_default_parser_declares_sections():
+    defaults = get_parser("unknown_tool").default_sections()
+    assert defaults == {"raw": True}
 
 
 def test_resolve_sections_defaults():
-    result = step1_5.resolve_sections(include=None, exclude=None, only=None)
+    defaults = _coderabbit_defaults()
+    result = step1_5.resolve_sections(include=None, exclude=None, only=None, defaults=defaults)
     assert result["inline"] is True
     assert result["nitpick"] is False
 
 
 def test_resolve_sections_include():
-    result = step1_5.resolve_sections(include=["nitpick"], exclude=None, only=None)
+    defaults = _coderabbit_defaults()
+    result = step1_5.resolve_sections(include=["nitpick"], exclude=None, only=None, defaults=defaults)
     assert result["nitpick"] is True
     assert result["inline"] is True  # default still on
 
 
 def test_resolve_sections_exclude():
-    result = step1_5.resolve_sections(include=None, exclude=["outside_diff"], only=None)
+    defaults = _coderabbit_defaults()
+    result = step1_5.resolve_sections(include=None, exclude=["outside_diff"], only=None, defaults=defaults)
     assert result["outside_diff"] is False
     assert result["inline"] is True
 
 
 def test_resolve_sections_only():
-    result = step1_5.resolve_sections(include=None, exclude=None, only=["inline"])
+    defaults = _coderabbit_defaults()
+    result = step1_5.resolve_sections(include=None, exclude=None, only=["inline"], defaults=defaults)
     assert result["inline"] is True
     assert result["actionable_summary"] is False
     assert result["outside_diff"] is False
@@ -119,7 +139,8 @@ def test_run_parser_end_to_end(tmp_path, monkeypatch):
     monkeypatch.setattr(step1_5, "RESULTS_DIR", results_dir)
     monkeypatch.setattr(step1_5, "BENCHMARK_DATA_FILE", benchmark_file)
 
-    sections_config = step1_5.resolve_sections(include=None, exclude=None, only=None)
+    defaults = get_parser("coderabbit").default_sections()
+    sections_config = step1_5.resolve_sections(include=None, exclude=None, only=None, defaults=defaults)
     step1_5.run_parser("coderabbit", sections_config)
 
     output_file = results_dir / "parsed_coderabbit.json"

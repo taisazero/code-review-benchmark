@@ -17,30 +17,23 @@ from code_review_benchmark.parsers.base import ParsedReview
 RESULTS_DIR = Path("results")
 BENCHMARK_DATA_FILE = RESULTS_DIR / "benchmark_data.json"
 
-DEFAULT_SECTIONS = {
-    "inline": True,
-    "actionable_summary": True,
-    "outside_diff": True,
-    "nitpick": False,
-    "walkthrough": False,
-    "pre_merge_checks": False,
-    "finishing_touches": False,
-    "review_details": False,
-    "additional_comments": False,
-    "additional_context": False,
-    "unknown": False,
-}
-
 
 def resolve_sections(
     include: list[str] | None,
     exclude: list[str] | None,
     only: list[str] | None,
+    defaults: dict[str, bool] | None = None,
 ) -> dict[str, bool]:
-    """Resolve section filter config from CLI flags."""
+    """Resolve section filter config from CLI flags.
+
+    *defaults* comes from the parser's ``default_sections()``; when ``None``
+    the caller must supply it via get_parser(tool).default_sections().
+    """
+    if defaults is None:
+        defaults = {}
     if only:
-        return {name: (name in only) for name in DEFAULT_SECTIONS}
-    config = dict(DEFAULT_SECTIONS)
+        return {name: (name in only) for name in defaults}
+    config = dict(defaults)
     if include:
         for name in include:
             if name in config:
@@ -239,7 +232,9 @@ def main():
     args = parser.parse_args()
 
     only = args.only.split(",") if args.only else None
-    sections_config = resolve_sections(args.include, args.exclude, only)
+    tool_parser = get_parser(args.tool)
+    defaults = tool_parser.default_sections()
+    sections_config = resolve_sections(args.include, args.exclude, only, defaults)
 
     if args.preview:
         if not BENCHMARK_DATA_FILE.exists():

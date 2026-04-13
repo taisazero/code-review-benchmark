@@ -66,3 +66,12 @@ class BaseParser(ABC):
     def parse(self, review_comments: list[dict]) -> ParsedReview:
         """Parse raw review comments into categorized sections."""
         ...
+
+    @abstractmethod
+    def default_sections(self) -> dict[str, bool]:
+        """Section names this parser produces and their default include/exclude.
+
+        Keys are all section names the parser can emit.
+        Values are True (included by default) or False (excluded by default).
+        """
+        ...
