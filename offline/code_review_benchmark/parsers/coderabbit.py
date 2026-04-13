@@ -296,7 +296,7 @@ class CodeRabbitParser(BaseParser):
     def default_sections(self) -> dict[str, bool]:
         return {
             "inline": True,
-            "actionable_summary": True,
+            "actionable_summary": False,
             "outside_diff": True,
             "nitpick": False,
             "walkthrough": False,
