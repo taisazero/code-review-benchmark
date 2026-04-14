@@ -33,10 +33,6 @@ _SEVERITY_BADGE_LINE = re.compile(
 # ---------------------------------------------------------------------------
 
 _HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
-_DETAILS_BLOCK_RE = re.compile(
-    r"<details>\s*<summary>(.*?)</summary>.*?</details>",
-    re.DOTALL,
-)
 _NOISE_SUMMARIES = {
     "\U0001f9e9 Analysis chain",
     "\U0001f916 Prompt for AI Agents",

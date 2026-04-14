@@ -20,7 +20,7 @@ def test_parser_declares_default_sections():
     """Each parser must declare its own default sections."""
     defaults = _coderabbit_defaults()
     assert defaults["inline"] is True
-    assert defaults["actionable_summary"] is True
+    assert defaults["actionable_summary"] is False
     assert defaults["outside_diff"] is True
     assert defaults["nitpick"] is False
     assert defaults["walkthrough"] is False
